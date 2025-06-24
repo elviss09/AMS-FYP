@@ -1,0 +1,180 @@
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.profile-container {
+    width: 1000px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px 30px;
+    gap: 10px;
+}
+
+.content-header {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.details-title {
+    font-weight: 600;
+}
+
+.details-info {
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.header-personal-details, .header-contact-info, .header-medical-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFBFBF;
+}
+
+.personal-details-icon img, .contact-info-icon img, .medical-info-icon img {
+    width: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.section-personal-details, .section-contact-info, .section-medical-info {
+    margin-bottom: 30px;
+}
+
+.full-name {
+    grid-area: name;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.staff-id {
+    grid-area: mykad;
+}
+
+.dob {
+    grid-area: dob;
+}
+
+.age {
+    grid-area: age;
+}
+
+.gender {
+    grid-area: gender;
+}
+
+.phone-no {
+    grid-area: phone;
+}
+
+.email {
+    grid-area: email;
+}
+
+.emergency-contact {
+    grid-area: emergency;
+}
+
+.emergency-contact-relationship {
+    grid-area: relation;
+}
+
+.role {
+    grid-area: role;
+}
+
+.position {
+    grid-area: position;
+}
+
+.department {
+    grid-area: department;
+}
+
+.specialization {
+    grid-area: specialization;
+}
+
+.qualitfication {
+    grid-area: qualitfication;
+}
+
+.section-personal-details {
+    display: grid;
+    grid-template-areas: 
+    "name mykad mykad"
+    "dob age gender";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.section-contact-info {
+    display: grid;
+    grid-template-areas: 
+    "phone email"
+    "emergency relation";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.section-medical-info {
+    display: grid;
+    grid-template-areas: 
+    "role position department"
+    "specialization qualitfication qualitfication";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+input {
+    width: auto;
+    padding: 5px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.action-button {
+    padding: 30px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    cursor: pointer;
+}
+
+.action-button a, .action-button button {
+    padding: 10px 50px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.cancel-button {
+    background-color: #BFBFBF;
+    color: white;
+}
+
+.confirm-button{
+    background-color: #326DEC;
+    color: white;
+}

@@ -1,0 +1,270 @@
+.tab-page {
+    width: 98%;
+}
+
+.tab-list {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.tab-list a {
+    padding: 10px 5px;
+    width: 120px;
+    text-decoration: none;
+    color: #353535;
+    opacity: 60%;
+    z-index: 1;
+}
+
+.tab-list .active {
+    padding: 10px 5px;
+    width: 120px;
+    opacity: 100%;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px -8px 20px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    background-color: white;
+}
+
+.all-page-tab {
+    padding: 20px 30px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.upcoming-page-tab, .past-page-tab {
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.record-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+}
+
+.record-list-table th, 
+.record-list-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.appointment-type-cell {
+    text-align: left;
+}
+
+.record-list-table thead {
+    background-color: #e0ebff; /* Light blue header */
+    font-weight: bold;
+    color: #007bff; /* Blue text */
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.approved {
+    background-color: #cdf8dc; /* Light green */
+    color: #16A34A; /* Green text */
+}
+
+.pending {
+    background-color: #FEF9C3; /* Light yellow */
+    color: #CA8A04; /* Dark yellow text */
+}
+
+.rejected {
+    background-color: #FEC3C3; /* Light red */
+    color: #CA0404; /* Red text */
+}
+
+.change-requested {
+    background-color: #DBEAFE; /* Light blue */
+    color: #2563EB; /* Dark blue text */
+}
+
+
+/* Filter Button */
+.filter-btn {
+    margin-bottom: 15px;
+    padding: 10px 18px;
+    background-color: #007bff;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: auto;
+}
+
+/* Modal Box */
+.modal-content {
+    background-color: #fff;
+    margin: 60px auto;
+    padding: 25px 30px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Close Button */
+.modal-content .close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-content .close:hover {
+    color: #333;
+}
+
+/* Filter Title */
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.filter-form > label {
+    display: block;
+    margin-top: 30px;
+    padding-top: 10px;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    border-top: 1px solid #ccc;
+}
+
+/* Inputs and Selects */
+.filter-form input,
+.filter-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Action Buttons */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+/* Apply Button */
+.modal-actions button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions button:hover {
+    background-color: #218838;
+}
+
+/* Reset Link */
+.modal-actions .reset-link {
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions .reset-link:hover {
+    background-color: #ddd;
+}
+
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    background-color: #f5f5f5;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.3s;
+}
+
+.checkbox-group input[type="checkbox"] {
+    accent-color: #007bff;
+    cursor: pointer;
+}
+
+.checkbox-group label:hover {
+    background-color: #e2e2e2;
+}
+
+/* Select Styling */
+.filter-form select {
+    appearance: none;
+    background: white;
+    background-image: url("data:image/svg+xml,%3Csvg fill='gray' viewBox='0 0 24 24' width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+

@@ -1,0 +1,108 @@
+.sidebar {
+    width: 280px;
+    background-color: #3366FF;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 15px;
+    border-radius: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+.user-icon img {
+    width: 50px;
+}
+
+.profile p {
+    margin: 5px 0;
+}
+
+.staff-name p {
+    font-size: 18px;
+}
+
+.staff-role p {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.staff-specialise p {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.staff-id p {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 8px;
+    letter-spacing: 1px;
+}
+
+.navi-bar {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 10px; /* Space between items */
+    padding: 10px;/* Light background */
+    width: auto; /* Adjust as needed */
+    border-radius: 10px;
+}
+
+.navi-bar a {
+    display: flex;
+    align-items: center; /* Align icon & text */
+    gap: 10px; /* Space between icon and text */
+    padding: 12px 20px;
+    width: 100%; /* Make div fill the container */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.navi-bar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
+}
+
+.navi-bar .active {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight active section */
+    color: white;
+}
+
+.navi-bar img {
+    width: 22px; /* Set icon size */
+    height: 22px;
+}
+
+.badge {
+    background-color: red;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+    border-radius: 50%;
+    margin-left: auto;
+}

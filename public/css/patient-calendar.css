@@ -1,0 +1,90 @@
+.calendar-container {
+    width: auto;
+    background: #DBEAFE;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px 30px 20px;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.calendar-header button {
+    background-color: #DBEAFE;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#prevMonth {
+    transform: rotate(90deg);
+}
+
+#nextMonth {
+    transform: rotate(-90deg);
+}
+
+#monthYear {
+    width: 180px;
+}
+
+.calendar-header button:hover {
+    background: #d8d8d8;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 12px;
+    gap: 1px;
+    color: #353535;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    place-items: center;
+    text-align: center;
+}
+
+.day-box {
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    width: 20px;
+    height: 20px;
+}
+
+.today {
+    background: #3366FF;
+    color: white;
+    border-radius: 100%;
+}
+
+.empty {
+    visibility: hidden;
+}
+
+.appointment-dot {
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    margin: 2px auto 0;
+}

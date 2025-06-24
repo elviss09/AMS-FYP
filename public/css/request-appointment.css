@@ -1,0 +1,237 @@
+.appointment-form {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 900px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.form-set {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+label {
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 350px;
+    height: 35px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+option {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+    padding-right: 10px;
+}
+
+.file-upload-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#referralUpload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.file-name-display {
+    position: absolute;
+    top: 100%; /* Changed from 110% to 100% */
+    left: 0;
+    margin-top: 2px; /* Optional: fine-tune spacing */
+    font-size: 13px;
+    color: #555;
+    background: white;
+    max-width: 250px;
+    word-break: break-word;
+}
+
+.upload-btn {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+}
+
+.upload-icon {
+    width: 18px;
+    height: 18px;
+}
+
+#file-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    max-width: 250px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.form-group-date-time {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.timezone {
+    color: 2563EB;
+}
+
+.select-date-time {
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.time-slot {
+    display: grid;
+    grid-template-areas:
+        "selected selected"
+        "am pm";
+    grid-template-columns: 140px 140px;
+    grid-template-rows: 20px;
+    gap: 10px;
+}
+
+.selected-date {
+    grid-area: selected;
+}
+
+.am-time {
+    grid-area: am;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pm-time {
+    grid-area: pm;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.time-option {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 16px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.time-option:hover {
+    background-color: #e0e0e0;
+}
+
+.time-option.selected {
+    background-color: #007BFF;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#book-appointment-btn {
+    background-color: #326DEC; /* Bootstrap blue */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#book-appointment-btn:disabled {
+    background-color: #a9c9ff; /* lighter blue when disabled */
+    cursor: not-allowed;
+}
+
+#book-appointment-btn:hover:enabled {
+    background-color: #2B5FCC;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-header {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    /* width: 400px; */
+    text-align: left;
+}
+
+.popup-actions {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.popup-actions button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    font-size: 15px;
+    cursor: pointer;
+}

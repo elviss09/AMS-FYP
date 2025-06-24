@@ -1,0 +1,349 @@
+.content {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "mid right";
+    grid-template-columns: auto 400px;
+    column-gap: 20px;
+    padding-right: 20px;
+}
+
+.content > div.mid-content {
+    grid-area: mid;
+}
+
+.content > div.right-content {
+    grid-area: right;
+}
+
+.content > div.header-page {
+    grid-area: header;
+}
+
+
+/* Welcome Card */
+.welcome-card {
+    background: linear-gradient(270deg, #71DDB1 0.07%, #52A2D8 50.14%, #3366FF 100.21%);
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 250px;
+}
+
+.welcome-text {
+    width: 40%;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.welcome-text p {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.hello-text {
+    color: CED5DC;
+    font-weight: 300;
+}
+
+.welcome-img {
+    width: 60%;
+    position: relative;
+    top: -25%;
+    text-align: right;
+}
+
+.welcome-img img{
+    width: 350px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    display: grid;
+    grid-template-areas:
+        "title icon"
+        "content icon";
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: left;
+    flex: 1;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-box > div.stat-title {
+    grid-area: title;
+}
+
+.stat-box > div.stat-content {
+    grid-area: content;
+}
+
+.stat-box > div.stat-icon-calendar, div.stat-icon-clock, div.stat-icon-check{
+    grid-area: icon;
+    text-align: center;
+    width: 58px;
+    height: 54px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-icon-calendar {
+    background-color: #DBEAFE;
+}
+
+.stat-icon-clock {
+    background-color: #FEF9C3;
+}
+
+.stat-icon-check {
+    background-color: #F3E8FF;
+}
+
+.stat-img-calendar img {
+    width: 38px;
+    height: 34px;
+    margin-top: 2px;
+}
+
+.stat-img-clock img {
+    width: 34px;
+    height: 34px;
+    margin-top: 3px;
+}
+
+.stat-img-check img {
+    width: 42px;
+    height: 38px;
+    margin-top: 2px;
+}
+
+.stat-box p {
+    font-size: 14px;
+    color: #666;
+    line-height: 0px;
+}
+
+.stat-box h3 {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 0px;
+    color: #353535;
+}
+
+/* Appointment Cards */
+.appointments {
+    padding: 20px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.appointments h2 {
+    line-height: 1px;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.appointment-card {
+    display: grid;
+    grid-template-areas:
+        "type date"
+        "place status";
+    background: #e3f2fd;
+    color: #353535;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    row-gap: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.appointment-card:hover {
+    background-color: #cce7fc; /* or #cce4f7 for a soft effect */ 
+    transform: scale(1.001);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.appointment-card > div.appointment-type {
+    grid-area: type;
+    font-size: 18px;
+    font-weight: 600;
+    color: #353535;
+    text-decoration: none;
+}
+
+.appointment-card > div.appointment-place {
+    grid-area: place;
+    font-size: 16px;
+}
+
+.appointment-card > div.date {
+    grid-area: date;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.appointment-card > div.status {
+    grid-area: status;
+    text-align: right;
+}
+
+.appointment-card p {
+    line-height: 0px;
+    text-decoration: none;
+}
+
+.appointment-link,
+.appointment-link:hover,
+.appointment-link:focus,
+.appointment-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.approved {
+    background: #DCFCE7;
+    color: #16A34A;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    height: 30px;
+}
+
+.rejected {
+    background: #FEC3C3;
+    color: #CA0404;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    height: 30px;
+}
+
+.pending {
+    background: #FEF9C3;
+    color: #CA8A04;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    height: 30px;
+}
+
+.change-requested {
+    background: #E0E7FF;
+    color: #4F46E5 ;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    height: 30px;
+}
+
+.calendar-box {
+    margin-bottom: 20px;
+}
+
+/* Notifications */
+.notifications {
+    background: white;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+
+.noti-box {
+    display: grid;
+    grid-template-areas:  
+    "icon title"
+    "icon time";
+    grid-template-columns: 70px auto;
+    place-items: center;
+    background-color: #e3f2fd;
+    border-radius: 12px;
+    padding: 8px 0px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.noti-box:hover {
+    background-color: #cce7fc;
+    transform: scale(1.001);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.noti-box.selected {
+    border: 2px solid #007BFF;
+    background-color: #eef6ff;
+    border-radius: 8px;
+}
+
+.noti-icon {
+    grid-area: icon;
+}
+
+.noti-title {
+    grid-area: title;
+    width: 100%;
+}
+
+.noti-time {
+    grid-area: time;
+    width: 100%;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 600;
+    color: #353535;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.noti-title h3 {
+    line-height: 1px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.noti-time p {
+    line-height: 0%;
+    font-size: 12px;
+}
+
+.img-noti-icon img{
+    width: 35px;
+    height: 35px;
+}

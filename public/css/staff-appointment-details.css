@@ -1,0 +1,242 @@
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
+.details-container {
+    width: 1000px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.content-header {
+    background-color: #3366FF;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 15px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.details-section {
+    padding: 10px 30px;
+}
+
+.section-patient-details {
+    display: grid;
+    grid-template-areas: 
+    "name mykad mykad"
+    "dob age gender";
+    grid-template-columns:  1fr 1fr 1fr;
+    row-gap: 20px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.full-name {
+    grid-area: name;
+    word-wrap: break-word;  /* Ensures long words break */
+    overflow-wrap: break-word; /* Ensures text wraps within container */
+    white-space: normal;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.mykad-number {
+    grid-area: mykad;
+}
+
+.dob {
+    grid-area: dob;
+}
+
+.age {
+    grid-area: age;
+}
+
+.gender {
+    grid-area: gender;
+}
+
+.details-content {
+    display: grid;
+    grid-template-areas: 
+    "type refer letter"
+    "section doctor approver"
+    "date time time"
+    "status details details";
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 30px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.details-content > div.appointment-type {
+    grid-area: type;
+}
+
+.details-content > div.refer-to {
+    grid-area: refer;
+}
+
+.details-content > div.referral-letter {
+    grid-area: letter;
+}
+
+.details-content > div.section-facility {
+    grid-area: section;
+} 
+
+.details-content > div.assigned-doctor {
+    grid-area: doctor;
+}
+
+.details-content > div.approved-by {
+    grid-area: approver;
+}
+
+.details-content > div.date {
+    grid-area: date;
+}
+
+.details-content > div.time {
+    grid-area: time;
+}
+
+.details-content > div.status {
+    grid-area: status;
+}
+
+.details-content > div.status-details {
+    grid-area: details;
+}
+
+.details-title {
+    font-weight: 300;
+}
+
+.details-info {
+    font-weight: 600;
+}
+
+.referral-letter img {
+    width: 18px;
+    height: 16px;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.referral-letter > div.details-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status > div.details-info.approved {
+    background: #DCFCE7;
+    color: #16A34A;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status > div.details-info.rejected {
+    background: #FEC3C3;
+    color: #CA0404;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status > div.details-info.pending {
+    background: #FEF9C3;
+    color: #CA8A04;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status > div.details-info.change-requested {
+    background: #E0E7FF;
+    color: #4F46E5 ;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.action-button {
+    padding: 30px 0px;
+    margin: 0px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.action-button button, .action-button a {
+    width: 180px;
+    padding: 8px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 0px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.reject-button {
+    background-color: #e21c1c;
+    color: white;
+}
+
+.accept-button {
+    background-color: #16A34A;
+    color: white;
+}
+
+.request-change-button {
+    background-color: #326DEC;
+    color: white;
+}
+
+.back-button {
+    background-color: #BFBFBF;
+    color: white;
+}
+
+.appointment-type input, .refer-to input, .section-facility input, .assigned-doctor input {
+    width: 70%;
+    padding: 5px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.date input, .time input {
+    width: 120px;
+    padding: 5px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}

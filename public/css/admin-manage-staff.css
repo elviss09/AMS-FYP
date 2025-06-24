@@ -1,0 +1,369 @@
+.content {
+    padding-right: 20px;
+}
+
+.search-filter-register {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.search-filter-register img {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-filter {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+}
+
+.search-icon {
+    border-left: 1px solid #BFBFBF;
+    padding: 0px 5px 0px 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.search-input input {
+    outline: none;
+    border: none;
+    height: 25px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    width: 300px;
+    height: 97%;
+    border: 1px solid #BFBFBF;
+    border-radius: 5px;
+    gap: 5px;
+}
+
+.filter-group {
+    height: 100%;
+    display: flex;
+}
+
+
+.filter-button button, .register-button a {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    padding: 5px 15px;
+    height: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.filter-button button {
+    color: #326DEC;
+    background-color: white;
+    border: 1px solid #326DEC;
+}
+
+
+.register-button a {
+    width: 240px;
+    gap: 10px;
+    padding: 7px 5px;
+    background-color: #326DEC;
+    color: white;
+    text-decoration: none;
+}
+
+.register-button a:hover {
+    background-color: #2B5FCC;
+}
+
+
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Adjusts the number of columns based on available width */
+    gap: 20px;
+    padding: 30px 0px;
+}
+
+.staff-card {
+    width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: #505050;
+}
+
+.user-icon img {
+    width: 45px;
+    border-radius: 50%;
+}
+
+.staff-info {
+    display: flex;
+    align-items: center;
+}
+
+.name-position-threedot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 5px;
+    margin-left: 10px;
+}
+
+.name-position > .name {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.three-dot-button {
+    cursor: pointer; /* Ensure the cursor is a pointer */
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth transition for hover effect */
+    border-radius: 50%;
+}
+
+.three-dot-button:hover {
+    transform: scale(1.2); /* Slightly increase the size of the button */
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: add background color change on hover */
+    border-radius: 50%; 
+}
+
+.three-dot-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.staff-contact-info {
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.staff-contact-info img {
+    width: 20px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.email-info, .phone-info {
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+
+.pop-out-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    min-width: 150px;
+    z-index: 1000;
+    display: none;
+}
+
+.pop-out-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pop-out-menu li {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.pop-out-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.pop-out-menu li:hover {
+    background-color: #f4f4f4;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: auto;
+}
+
+/* Modal Box */
+.modal-content {
+    background-color: #fff;
+    margin: 60px auto;
+    padding: 25px 30px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Close Button */
+.modal-content .close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-content .close:hover {
+    color: #333;
+}
+
+/* Filter Title */
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.filter-form > label {
+    display: block;
+    margin-top: 30px;
+    padding-top: 10px;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    border-top: 1px solid #ccc;
+}
+
+/* Inputs and Selects */
+.filter-form input,
+.filter-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Action Buttons */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+/* Apply Button */
+.modal-actions button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions button:hover {
+    background-color: #218838;
+}
+
+/* Reset Link */
+.modal-actions .reset-link {
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.modal-actions .reset-link:hover {
+    background-color: #ddd;
+}
+
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    background-color: #f5f5f5;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.3s;
+}
+
+.checkbox-group input[type="checkbox"] {
+    accent-color: #007bff;
+    cursor: pointer;
+}
+
+.checkbox-group label:hover {
+    background-color: #e2e2e2;
+}
+
+/* Select Styling */
+.filter-form select {
+    appearance: none;
+    background: white;
+    background-image: url("data:image/svg+xml,%3Csvg fill='gray' viewBox='0 0 24 24' width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+
+

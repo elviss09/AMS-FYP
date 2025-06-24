@@ -1,0 +1,176 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: #3366FF;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 15px;
+    border-radius: 15px;
+}
+
+.user-icon img {
+    width: 50px;
+}
+
+.profile p {
+    margin: 5px 0;
+}
+
+.user-name p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.user-details-1 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.user-details-1 p {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 8px;
+    letter-spacing: 1px;
+}
+
+.user-type {
+    width: 50%;
+    text-align: right;
+    padding-right: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.user-details-1 .age {
+    width: 50%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.user-details-2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.user-details-2 p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.gender, .height, .weight {
+    width: 33%;
+}
+
+.height {
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.details-heading {
+    font-size: 12px;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.navi-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.navi-bar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.navi-bar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navi-bar .active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.navi-bar img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Notification Badge */
+.badge {
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    border-radius: 50%;
+    margin-left: auto;
+    font-weight: bold;
+}
+
+/* Toggle Button for Small Screens */
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #3366FF;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1100;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}

@@ -1,0 +1,109 @@
+/* TAB PAGE */
+.tab-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    isolation: isolate;
+    width: 1510px;
+    height: 500px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 8px 8px 8px;
+}
+
+/* TAB LIST */
+.tab-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    width: 1510px;
+    height: 40px;
+    z-index: 1;
+}
+
+/* ALL TAB */
+.all-tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: 120px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 8px 8px 0px 0px;
+}
+
+/* UPCOMING & PAST TABS */
+.upcoming-tab, .past-tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: 120px;
+    height: 40px;
+    opacity: 0.6;
+}
+
+/* ALL PAGE TAB */
+.all-page-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+    width: 1510px;
+    height: 460px;
+    background: #FFFFFF;
+    border-radius: 0px 8px 0px 0px;
+    z-index: 0;
+}
+
+/* TABLE STYLES */
+.record-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.record-list-table th {
+    background-color: #E8F0FE;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.record-list-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* STATUS STYLES */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* STATUS COLORS */
+.status.approved {
+    background-color: #d4f8d4;
+    color: #228B22;
+}
+
+.status.pending {
+    background-color: #FEEFB3;
+    color: #9F6000;
+}
+
+.status.rejected {
+    background-color: #FFCCCC;
+    color: #D8000C;
+}
+
+.status.change-requested {
+    background-color: #CCE5FF;
+    color: #004085;
+}

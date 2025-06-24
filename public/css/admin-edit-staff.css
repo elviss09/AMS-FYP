@@ -1,0 +1,327 @@
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.profile-container {
+    width: 1000px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px 30px;
+    gap: 10px;
+}
+
+.content-header {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.details-title {
+    font-weight: 600;
+}
+
+.details-info {
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.header-personal-details, .header-contact-info, .header-medical-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFBFBF;
+}
+
+.personal-details-icon img, .contact-info-icon img, .medical-info-icon img {
+    width: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.section-personal-details, .section-contact-info, .section-medical-info {
+    margin-bottom: 30px;
+}
+
+.full-name {
+    grid-area: name;
+    word-wrap: break-word;  /* Ensures long words break */
+    overflow-wrap: break-word; /* Ensures text wraps within container */
+    white-space: normal;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.staff-id {
+    grid-area: mykad;
+}
+
+.dob {
+    grid-area: dob;
+}
+
+.age {
+    grid-area: age;
+}
+
+.gender {
+    grid-area: gender;
+}
+
+.phone-no {
+    grid-area: phone;
+}
+
+.email {
+    grid-area: email;
+}
+
+.emergency-contact {
+    grid-area: emergency;
+}
+
+.emergency-contact-relationship {
+    grid-area: relation;
+}
+
+.role {
+    grid-area: role;
+}
+
+.position {
+    grid-area: position;
+}
+
+.department {
+    grid-area: department;
+}
+
+.specialization {
+    grid-area: specialization;
+}
+
+.qualitfication {
+    grid-area: qualitfication;
+}
+
+.section-personal-details {
+    display: grid;
+    grid-template-areas: 
+    "name mykad mykad"
+    "dob age gender";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.section-contact-info {
+    display: grid;
+    grid-template-areas: 
+    "phone email"
+    "emergency relation";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.section-medical-info {
+    display: grid;
+    grid-template-areas: 
+    "role position department"
+    "specialization qualitfication qualitfication";
+    grid-template-columns: 300px 300px auto;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.details-info select {
+    width: auto;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.details-info select:focus {
+    border-color: #326dec;
+    background-color: #f1f8ff;
+    outline: none;
+}
+
+/* Hover and active effect for select dropdown */
+.details-info select:hover {
+    border-color: #326dec;
+}
+
+input {
+    width: auto;
+    padding: 8px 12px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+input:focus {
+    border-color: #326dec;
+    background-color: #f1f8ff;
+    outline: none;
+}
+
+.save-button button {
+    background-color: #326dec;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button button:hover {
+    background-color: #2753a2;
+}
+
+.save-button button:disabled {
+    background-color: #d1d1d1;
+    cursor: not-allowed;
+}
+
+.save-button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Basic styles for the pop-out */
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.popup-title {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.popup-actions button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.popup-actions button:first-child {
+    background-color: rgb(255, 255, 255);
+    color: #326dec;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    border: 1px solid #326dec;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-actions button:last-child {
+    background-color: #326dec;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn button, .cancel-btn button {
+    background-color: #326dec;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#changeSummary {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#changeSummary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#changeSummary li {
+    background-color: #f9f9f9;
+    border-left: 4px solid #007BFF;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#changeSummary li strong {
+    color: #007BFF;
+    font-size: 15px;
+}
+
+#changeSummary em {
+    color: #555;
+    font-style: italic;
+}
+
+
+#changeSummary,
+#changeSummary ul,
+#changeSummary li {
+    text-align: left;
+}
+

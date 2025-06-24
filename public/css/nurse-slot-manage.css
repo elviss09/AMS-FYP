@@ -1,0 +1,205 @@
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 1000px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.select-section select {
+    padding: 3px 5px;
+    font-size: 16px;
+    color: #333; /* Default text color */
+    background-color: #fff; /* Background color */
+    border: 1px solid #353535; /* Blue border */
+    border-radius: 5px; /* Rounded corners */ 
+    cursor: pointer;
+}
+
+.select-section {
+    margin-bottom: 40px;
+}
+
+.form-title-timezone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c5c5c5;
+    padding: 3px 0px;
+}
+
+.timezone {
+    color: #326DEC;
+}
+
+.day-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.day-box:hover {
+    background-color: #DBEAFE; /* Light blue on hover */
+}
+
+.day-box.selected {
+    background-color: #DBEAFE !important;
+}
+
+.checkbox-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    padding: 1px;
+    border: 1px solid #326DEC;
+    border-radius: 3px;
+}
+
+.inside-checkbox {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 3px;
+}
+
+.up-down-arrow img {
+    width: 16px;
+}
+
+.day-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+}
+
+.slot-config {
+    padding: 15px;
+    border-right: 1px solid #cccccc;
+    width: 250px;
+    padding-bottom: 40px;
+}
+
+.slot-day-title {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.slot-config label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.slot-config input[type="time"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.slot-config button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.slot-config button:hover {
+    background: #0056b3;
+}
+
+.slot-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 20px;
+    width: 250px;
+}
+
+.am-column, .pm-column {
+    width: 50%;
+}
+
+.am-title, .pm-title{
+    text-align: center;
+    color: #007bff;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.slot-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.slot-item {
+    border: 1px solid #007bff;
+    padding: 5px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #DBEAFE;
+    width: 100%;
+}
+
+.slot-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.remove-btn img{
+    width: 14px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    transform: scale(1.2); /* Enlarge the image by 20% */
+    transition: transform 0.2s ease-in-out;
+}
+
+.no-slot-message {
+    color: #c4c4c4;
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+}
+
