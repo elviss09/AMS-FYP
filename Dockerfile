@@ -32,3 +32,5 @@ EXPOSE 8000
 
 # Start Laravel
 CMD php artisan serve --host=0.0.0.0 --port=8000
+
+RUN docker-php-ext-install pdo_pgsql pgsql
