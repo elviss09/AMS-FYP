@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Selection</title>
-    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/all-page.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('font.css') }}">
+    <link rel="stylesheet" href="{{ asset('all-page.css') }}">
+    <link rel="stylesheet" href="{{ asset('login.css') }}">
     <style>
         body {
             background-color: #f4f4f4;
