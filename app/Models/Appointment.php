@@ -8,7 +8,12 @@ class Appointment extends Model
 {
     protected $table = 'appointments';
     protected $primaryKey = 'appointment_id';
-    public $timestamps = false;
+
+    public $incrementing = true;
+    protected $keyType = 'int';
+
+    public $timestamps = true;
+
 
     protected $fillable = [
         'patient_id',
