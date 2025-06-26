@@ -35,3 +35,5 @@ CMD php artisan serve --host=0.0.0.0 --port=8000
 # CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000", "--public", "public"]
 
 RUN docker-php-ext-install pdo_pgsql pgsql
+
+RUN php artisan storage:link
