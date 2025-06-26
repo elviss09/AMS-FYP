@@ -17,8 +17,6 @@ $unreadCount = DB::table('notifications')
 $currentPage = request()->path();
 @endphp
 
-<!-- Sidebar Toggle Button for Mobile -->
-<button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
 <!-- Sidebar -->
 <div class="sidebar">
@@ -72,8 +70,32 @@ $currentPage = request()->path();
 </div>
 
 <!-- Sidebar Toggle Script -->
-<script>
+<!-- <script>
     function toggleSidebar() {
         document.querySelector('.sidebar').classList.toggle('active');
     }
+</script> -->
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+
+        if (sidebar.classList.contains('active')) {
+            document.addEventListener('click', outsideClickListener);
+        } else {
+            document.removeEventListener('click', outsideClickListener);
+        }
+    }
+
+    function outsideClickListener(event) {
+        const sidebar = document.querySelector('.sidebar');
+        const toggleButton = document.querySelector('.sidebar-toggle');
+
+        if (!sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
+            sidebar.classList.remove('active');
+            document.removeEventListener('click', outsideClickListener);
+        }
+    }
 </script>
+

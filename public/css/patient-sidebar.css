@@ -144,24 +144,9 @@
     font-weight: bold;
 }
 
-/* Toggle Button for Small Screens */
-.sidebar-toggle {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    background-color: #3366FF;
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    font-size: 22px;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 1100;
-    display: none;
-}
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .sidebar {
         transform: translateX(-100%);
     }

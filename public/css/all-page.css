@@ -71,3 +71,45 @@ body {
 /* primary #326DEC (blue) */
 /* background-color: #f0f0f0; */
 /* background-color:hover #e0e0e0; */
+
+
+@media (max-width: 1024px) {
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .container > div.sidebar-box {
+        width: 0%;
+        padding: 0;
+    }
+
+    .container > div.content {
+        width: 100%;
+    }
+
+    .page-header h1 {
+        font-size: 22px;
+    }
+
+    .confirm-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        column-gap: 0;
+    }
+
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+    .confirm-btn {
+        padding: 8px 18px;
+        font-size: 15px;
+    }
+}
