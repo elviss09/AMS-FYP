@@ -144,7 +144,7 @@
 }
 
 input {
-    width: auto;
+    width: 80%;
     padding: 5px;
     margin-top: 3px;
     border: 1px solid #ccc;
@@ -297,4 +297,59 @@ input {
 #changeSummary ul,
 #changeSummary li {
     text-align: left;
+}
+
+
+@media (max-width: 1024px) {
+    .profile-container {
+        width: auto;
+        box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        padding: 20px 30px;
+        gap: 10px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        gap: 10px;
+        /* background-color: red; */
+    }
+
+    .section-personal-details {
+        display: grid;
+        grid-template-areas: 
+        "name mykad"
+        "dob age" 
+        "gender gender";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+    }
+
+    .section-contact-info {
+        display: grid;
+        grid-template-areas: 
+        "phone email"
+        "emergency relation";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+        align-items: end;
+    }
+
+    .section-medical-info {
+        display: grid;
+        grid-template-areas: 
+        "height weight"
+        "bmi blood"
+        "penicilin penicilin"
+        "yes yes";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+        /* align-items: end; */
+    }
 }

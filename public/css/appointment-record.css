@@ -1,5 +1,5 @@
 .tab-page {
-    width: 98%;
+    width: auto;
 }
 
 .tab-list {
@@ -304,3 +304,45 @@ td.appointment-type-cell {
     background-color: #edf4ff; /* Soft blue on hover */
     cursor: pointer;
 }
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .record-list-table {
+        min-width: 800px; /* Or more, depending on your table content */
+        width: 100%; /* Optional: Keeps table 100% within the scroll container */
+        border-collapse: collapse;
+    }
+
+    .all-page-tab, .past-page-tab, .upcoming-page-tab {
+        overflow-x: auto;
+        width: auto;
+    }
+
+    .all-page-tab ::-webkit-scrollbar, .past-page-tab ::-webkit-scrollbar, .upcoming-page-tab ::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .all-page-tab ::-webkit-scrollbar-thumb, .past-page-tab ::-webkit-scrollbar-thumb, .upcoming-page-tab ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+
+    .all-page-tab ::-webkit-scrollbar-track, .past-page-tab ::-webkit-scrollbar-track, .upcoming-page-tab ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .checkbox-group {
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 5px;
+    }
+}
+

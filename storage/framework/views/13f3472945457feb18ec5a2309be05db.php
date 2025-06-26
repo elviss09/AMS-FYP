@@ -23,6 +23,7 @@
 
     <div class="content">
         <div class="page-header">
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
             <header>
                 <h1>Notification</h1>
             </header>

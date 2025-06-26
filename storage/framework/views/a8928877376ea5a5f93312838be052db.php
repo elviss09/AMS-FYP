@@ -16,6 +16,10 @@
         </div>
 
         <div class="content">
+             <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            </div>
+
             <div class="details-container">
                 <div class="content-header">Appointment Details</div>
                 <div class="details-section">
@@ -40,7 +44,8 @@
                             <div class="details-title">Referral Letter</div>
                             <div class="details-info">
                                 <?php if(!empty($appointment->referral_letter)): ?>
-                                    <a href="<?php echo e(asset('storage/' . $appointment->referral_letter)); ?>" target="_blank">View Referral Letter</a>
+                                    <!-- <a href="<?php echo e(asset('storage/' . $appointment->referral_letter)); ?>" target="_blank">View Referral Letter</a> -->
+                                    <a href="<?php echo e(asset('storage/' . rawurlencode($appointment->referral_letter))); ?>" target="_blank">View Referral Letter</a>
                                     <!-- <span class="download-icon"><img src="<?php echo e(asset('img/downloads.png')); ?>" alt="icon"></span> -->
                                 <?php else: ?>
                                     -

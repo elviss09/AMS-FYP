@@ -94,6 +94,7 @@ body {
         justify-content: left;
         align-items: center;
         gap: 10px;
+        height: 40px;
     }
 
     .page-header > header {

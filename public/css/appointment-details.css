@@ -292,3 +292,39 @@
 .popup-actions button {
     margin-left: 10px;
 }
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .details-content {
+        display: grid;
+        grid-template-areas:
+        "id created" 
+        "type doctor"
+        "section approver"
+        "letter letter"
+        "date time"
+        "status details";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 30px;
+        padding: 20px 0px;
+        border-bottom: 1px solid #BFBFBF;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .details-container {
+        width: auto;
+    }
+}

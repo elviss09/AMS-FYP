@@ -67,6 +67,7 @@
     background: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23666" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') center no-repeat;
     background-size: 20px;
 }
+
 .noti-details {
     grid-area: details;
     padding: 20px;
@@ -277,3 +278,66 @@ input:checked + .slider:before {
 .save-button:hover {
     background-color: #4f7bff;
 }
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .content {
+        margin: 0;
+    }
+    .noti-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: auto;
+    }
+
+    .recent-noti {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "list"
+        "details";
+        grid-template-columns: 1fr;
+        row-gap: 5px;
+        grid-area: recent;
+        box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        height: fit-content;
+    }
+
+    .noti-list {
+        grid-area: list;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .noti-box {
+        display: grid;
+        grid-template-areas: 
+        "icon title"
+        "icon details"
+        "icon time";
+        grid-template-columns: 50px auto;
+        column-gap: 10px;
+    }
+
+    .noti-details {
+        min-height: 200px;
+    }
+
+    .header-box {
+        margin-bottom: 10px;
+    }
+}
+
