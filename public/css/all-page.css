@@ -25,6 +25,7 @@ body {
     color: #353535;
     margin-bottom: 10px;
     font-weight: 600;
+    margin: 10px 0px;
 }
 
 .confirm-btn {
@@ -88,8 +89,36 @@ body {
         width: 100%;
     }
 
+    .page-header {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .page-header > header {
+        display: flex;
+        align-items: center;
+    }
+
     .page-header h1 {
         font-size: 22px;
+        display: flex;
+        align-items: center;
+    }
+
+    .page-header img {
+        width: 26px;
+        object-fit: contain;
+        display: flex;
+        align-items: center;
+    }
+
+    .page-header button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-self: center;
     }
 
     .confirm-btn {
@@ -105,11 +134,16 @@ body {
     }
 
     .page-header h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .confirm-btn {
         padding: 8px 18px;
         font-size: 15px;
+    }
+
+    .page-header > header {
+        display: flex;
+        align-items: center;
     }
 }
