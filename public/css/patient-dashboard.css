@@ -528,6 +528,15 @@ h2{
         margin: 0;
     }
 
+    .noti-title h3 {
+        line-height: 1px;
+        font-size: 18px;
+        font-weight: 500;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
     .calendar-box {
         margin-bottom: 10px;
     }
