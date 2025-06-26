@@ -92,8 +92,9 @@ class PatientAppointmentController extends Controller
                 'appointment_location' => $request->section_id,
                 'referral_letter'      => $fileName,
                 'status'               => 'Pending',
-                'created_at'           => now(), // 🆕 Add this line
-            ]);
+                'created_at'           => now(),
+            ], 'appointment_id'); // ← add this
+
 
             // ✅ Create notification
             DB::table('notifications')->insert([
