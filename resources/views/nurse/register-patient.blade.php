@@ -180,8 +180,8 @@
     }
 
     // PHP to JavaScript message pass
-    const successMessage = @json(session('success'));
-    const errorMessage = @json(session('error'));
+    const successMessage = <?php echo json_encode(session('success')); ?>;
+    const errorMessage =<?php echo json_encode(session('error')); ?>;
 
 
     if (successMessage) {
