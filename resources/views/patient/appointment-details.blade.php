@@ -40,7 +40,8 @@
                             <div class="details-title">Referral Letter</div>
                             <div class="details-info">
                                 @if (!empty($appointment->referral_letter))
-                                    <a href="{{ asset('storage/' . $appointment->referral_letter) }}" target="_blank">View Referral Letter</a>
+                                    <!-- <a href="{{ asset('storage/' . $appointment->referral_letter) }}" target="_blank">View Referral Letter</a> -->
+                                    <a href="{{ asset('storage/' . rawurlencode($appointment->referral_letter)) }}" target="_blank">View Referral Letter</a>
                                     <!-- <span class="download-icon"><img src="{{ asset('img/downloads.png') }}" alt="icon"></span> -->
                                 @else
                                     -

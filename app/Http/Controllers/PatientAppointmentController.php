@@ -93,7 +93,7 @@ class PatientAppointmentController extends Controller
                 'referral_letter'      => $fileName,
                 'status'               => 'Pending',
                 'created_at'           => now(),
-            ], 'appointment_id'); // ← add this
+            ], 'appointment_id');
 
 
             // ✅ Create notification
