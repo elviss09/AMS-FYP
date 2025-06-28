@@ -366,4 +366,36 @@
 }
 
 
+@media (max-width: 1024px) {
+    .content {
+        padding-right: 0;
+    }
+
+    .search-filter-register {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        height: auto;
+    }
+
+    .staff-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 300px)); /* Adjusts the number of columns based on available width */
+        gap: 20px;
+        padding: 30px 0px;
+        justify-content: center;
+    }
+
+    .staff-card {
+        width: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        color: #505050;
+    }
+}
+
+
 

@@ -31,6 +31,9 @@
         <?php endif; ?>
 
         <div class="content">
+            <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            </div>
             <div class="profile-container">
                 <form id="profileForm" method="POST" action="<?php echo e(route('nurse.register-patient.store')); ?>">
                     <?php echo csrf_field(); ?>
@@ -180,8 +183,8 @@
     }
 
     // PHP to JavaScript message pass
-    const successMessage = <?php echo json_encode(session('success'), 15, 512) ?>;
-    const errorMessage = <?php echo json_encode(session('error'), 15, 512) ?>;
+    const successMessage = <?php echo json_encode(session('success')); ?>;
+    const errorMessage =<?php echo json_encode(session('error')); ?>;
 
 
     if (successMessage) {

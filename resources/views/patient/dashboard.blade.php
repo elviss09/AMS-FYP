@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all-page.css') }}">
     <link rel="stylesheet" href="{{ asset('css/patient-sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/patient-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/patient-calendar.css') }}">
 </head>
 <body>

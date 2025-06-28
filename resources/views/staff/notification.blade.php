@@ -19,7 +19,10 @@
 
     <div class="content">
         <div class="page-header">
-            <h1>Notification</h1>
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
+            <header>
+                <h1>Notification</h1>
+            </header>
         </div>
 
         <div class="noti-container">
@@ -37,11 +40,11 @@
                             <div class="noti-title">{{ $noti->title }}</div>
                             <div class="noti-time">{{ \Carbon\Carbon::parse($noti->created_at)->format('d M Y, H:i') }}</div>
 
-                            @if (!$noti->staff_read)
+                            <!-- @if (!$noti->staff_read)
                                 <div class="mark-as-read-icon">
                                     <span><img src="{{ asset('img/mark.png') }}" title="Mark as read"></span>
                                 </div>
-                            @endif
+                            @endif -->
                         </div>
                     @empty
                         <div>No notifications found.</div>

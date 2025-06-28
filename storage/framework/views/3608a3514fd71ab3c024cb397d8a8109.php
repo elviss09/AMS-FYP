@@ -22,7 +22,10 @@
 
     <div class="content">
         <div class="page-header">
-            <header><h1>Appointment List</h1></header>
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            <header>
+                <h1>Appointment List</h1>
+            </header>
         </div>
 
         <div class="tab-page">

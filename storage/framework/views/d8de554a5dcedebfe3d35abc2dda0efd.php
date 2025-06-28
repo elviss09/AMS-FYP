@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/font.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/all-page.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/staff-sidebar.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('css/admin-dashboard.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/dashboard.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/patient-calendar.css')); ?>">
 </head>
 
@@ -21,6 +21,7 @@
 
         <div class="content">
             <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
                 <header>
                     <h1>Dashboard</h1>
                 </header>

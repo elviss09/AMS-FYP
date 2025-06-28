@@ -11,9 +11,13 @@
     font-size: 16px;
     color: #333; /* Default text color */
     background-color: #fff; /* Background color */
-    border: 1px solid #353535; /* Blue border */
     border-radius: 5px; /* Rounded corners */ 
     cursor: pointer;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    font-family: 'Inter', sans-serif;;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .select-section {
@@ -113,7 +117,7 @@
 
 .slot-config input[type="time"] {
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 5px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -126,7 +130,10 @@
     display: block;
     width: 100%;
     padding: 10px;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     background: #007bff;
     color: white;
     border: none;
@@ -201,5 +208,62 @@
     font-style: italic;
     font-size: 14px;
     text-align: center;
+}
+
+
+@media (max-width: 1024px) {
+    .form-container {
+        width: auto;
+    }
+
+    .select-section select {
+        width: 100%;
+    }
+
+    .form-title-timezone {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .timezone {
+        text-align: right;
+    }
+
+
+    .day-list {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+
+    .day-box {
+        width: auto;
+    }
+
+    .flex-box {
+       display: grid;
+       grid-template-areas: 
+       "time slot";
+       grid-template-columns: 1fr 1fr;
+    }
+
+    .timeslot-select {
+        width: 100%;
+    }
+
+    .slot-config {
+        grid-area: time;
+        width: auto;
+    }
+
+    .slot-list {
+        grid-area: slot;
+    }
+
+    .slot-columns {
+        width: auto;
+        font-size: 14px;
+    }
 }
 

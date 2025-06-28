@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all-page.css') }}">
     <link rel="stylesheet" href="{{ asset('css/staff-sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/nurse-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/patient-calendar.css') }}">
 </head>
 <body>
@@ -18,6 +18,7 @@
 
         <div class="content">
             <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
                 <header>
                     <h1>Dashboard</h1>
                 </header>

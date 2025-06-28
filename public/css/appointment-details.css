@@ -327,4 +327,19 @@
     .details-container {
         width: auto;
     }
+
+    .action-button {
+        padding: 20px 0px;
+        margin: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .action-button button, .action-button a {
+        width: 190px;
+        padding: 10px 0px;
+        font-size: 16px;
+    }
 }

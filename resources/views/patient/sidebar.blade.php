@@ -69,13 +69,6 @@ $currentPage = request()->path();
     </div>
 </div>
 
-<!-- Sidebar Toggle Script -->
-<!-- <script>
-    function toggleSidebar() {
-        document.querySelector('.sidebar').classList.toggle('active');
-    }
-</script> -->
-
 <script>
     function toggleSidebar() {
         const sidebar = document.querySelector('.sidebar');

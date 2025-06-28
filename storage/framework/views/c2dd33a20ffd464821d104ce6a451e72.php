@@ -14,6 +14,10 @@
             <?php echo $__env->make('staff.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
         </div>
         <div class="content">
+            <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            </div>
+            
             <div class="profile-container">
                 <form id="profileForm" method="POST" action="<?php echo e(route('admin.register-staff.store')); ?>">
                     <?php echo csrf_field(); ?>

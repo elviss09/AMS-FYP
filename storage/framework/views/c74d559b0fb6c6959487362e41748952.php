@@ -19,7 +19,10 @@
 
     <div class="content">
         <div class="page-header">
-            <h1>Notification</h1>
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            <header>
+                <h1>Notification</h1>
+            </header>
         </div>
 
         <div class="noti-container">
@@ -37,11 +40,11 @@
                             <div class="noti-title"><?php echo e($noti->title); ?></div>
                             <div class="noti-time"><?php echo e(\Carbon\Carbon::parse($noti->created_at)->format('d M Y, H:i')); ?></div>
 
-                            <?php if(!$noti->staff_read): ?>
+                            <!-- <?php if(!$noti->staff_read): ?>
                                 <div class="mark-as-read-icon">
                                     <span><img src="<?php echo e(asset('img/mark.png')); ?>" title="Mark as read"></span>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <div>No notifications found.</div>
@@ -138,13 +141,32 @@
         });
     });
 
-    function createToast(type, message) {
-        const container = document.querySelector('.notifications');
-        let toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `<div class="content"><span>${message}</span></div>`;
-        container.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
+    function createToast(type, icon, title, text) {
+        const notifications = document.querySelector('.notifications');
+        let newToast = document.createElement('div');
+        newToast.innerHTML = `
+            <div class="toast ${type}">
+                <i class="${icon}"></i>
+                <div class="content">
+                    <div class="title">${title}</div>
+                    <span>${text}</span>
+                </div>
+                <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+            </div>`;
+        notifications.appendChild(newToast);
+        newToast.timeOut = setTimeout(() => newToast.remove(), 5000);
+    }
+
+    // PHP to JavaScript message pass
+    const successMessage = <?php echo json_encode(session('success')); ?>;
+    const errorMessage =<?php echo json_encode(session('error')); ?>;
+
+
+    if (successMessage) {
+        createToast('success', 'fa-solid fa-circle-check', 'Success', successMessage);
+    }
+    if (errorMessage) {
+        createToast('error', 'fa-solid fa-circle-exclamation', 'Error', errorMessage);
     }
 </script>
 

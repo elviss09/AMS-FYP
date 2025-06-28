@@ -14,6 +14,10 @@
             @include('staff.sidebar') 
         </div>
         <div class="content">
+            <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
+            </div>
+            
             <div class="profile-container">
                 <form id="profileForm" method="POST" action="{{ route('admin.register-staff.store') }}">
                     @csrf

@@ -15,8 +15,8 @@
 }
 
 .sidebar-toggle {
-        display: none;
-    }
+    display: none;
+}
 
 /* Profile Section */
 .profile {
@@ -145,7 +145,7 @@
     font-size: 12px;
     border-radius: 50%;
     margin-left: auto;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 

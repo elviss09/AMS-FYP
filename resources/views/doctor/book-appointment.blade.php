@@ -30,7 +30,8 @@
     <div class="content">
         <div class="page-header">
             <header>
-                <h1>Request Appointment</h1>
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
+                <h1>Book Appointment</h1>
             </header>
         </div>
 

@@ -34,11 +34,13 @@ body {
     padding: 10px 30px;
     font-size: 18px;
     font-weight: 500;
-    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .confirm-btn:hover{
@@ -124,7 +126,8 @@ body {
 
     .confirm-btn {
         padding: 8px 20px;
-        font-size: 16px;
+        font-size: 17px;
+        font-weight: 500;
     }
 }
 
@@ -140,7 +143,8 @@ body {
 
     .confirm-btn {
         padding: 8px 18px;
-        font-size: 15px;
+        font-size: 16px;
+        font-weight: 500;
     }
 
     .page-header > header {

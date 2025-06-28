@@ -19,6 +19,10 @@
         </div>
 
         <div class="content">
+            <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+            </div>
+
             <div class="profile-container">
                 <div class="content-header">Edit Profile</div>
 
@@ -59,7 +63,6 @@
                                 <select name="gender">
                                     <option value="Male" <?php echo e($staff->gender == 'Male' ? 'selected' : ''); ?>>Male</option>
                                     <option value="Female" <?php echo e($staff->gender == 'Female' ? 'selected' : ''); ?>>Female</option>
-                                    <option value="Other" <?php echo e($staff->gender == 'Other' ? 'selected' : ''); ?>>Other</option>
                                 </select>
                             </div>
                         </div>

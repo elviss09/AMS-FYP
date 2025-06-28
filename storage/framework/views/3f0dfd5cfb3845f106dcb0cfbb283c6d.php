@@ -16,6 +16,10 @@
     </div>
 
     <div class="content">
+        <div class="page-header">
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="<?php echo e(asset('img/hamburger.png')); ?>" alt="icon"></button></div>
+        </div>
+        
         <div class="details-container">
             <div class="content-header">Appointment Details</div>
 

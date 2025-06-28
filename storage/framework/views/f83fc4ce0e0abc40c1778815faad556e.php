@@ -96,7 +96,7 @@
                     <tbody>
                         <?php $__empty_1 = true; $__currentLoopData = $appointments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr onclick="window.location.href='<?php echo e(url('appointment-details/'.$row->appointment_id)); ?>'">
-                                <td><?php echo e(\Carbon\Carbon::parse($row->appointment_date)->format('d/m/Y')); ?></td>
+                                <td><?php echo e(\Carbon\Carbon::parse($row->appointment_date)->format('d F Y')); ?></td>
                                 <td><?php echo e(\Carbon\Carbon::parse($row->appointment_time)->format('h:i A')); ?></td>
                                 <td><?php echo e($row->appointment_type); ?></td>
                                 <td><?php echo e($row->section_name); ?></td>

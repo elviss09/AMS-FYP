@@ -57,7 +57,7 @@
 }
 
 .staff-id {
-    grid-area: mykad;
+    grid-area: id;
 }
 
 .dob {
@@ -111,7 +111,7 @@
 .section-personal-details {
     display: grid;
     grid-template-areas: 
-    "name mykad mykad"
+    "name id id"
     "dob age gender";
     grid-template-columns: 300px 300px auto;
     row-gap: 30px;
@@ -188,7 +188,7 @@ input:focus {
     font-size: 16px;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -325,3 +325,66 @@ input:focus {
     text-align: left;
 }
 
+
+@media (max-width: 1024px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        gap: 10px;
+    }
+
+    .profile-container {
+        width: auto;
+    }
+
+    .section-personal-details {
+        display: grid;
+        grid-template-areas:
+        "name name"
+        "id dob" 
+        "age gender";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+    }
+
+    .full-name input {
+        width: 90%;
+    }
+
+    .staff-id input, .age input, .gender input{
+        width: 30%;
+    }
+
+    .section-contact-info {
+        display: grid;
+        grid-template-areas:
+        "phone email"
+        "emergency relation";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+        align-items: end;
+    }
+
+    .section-contact-info input  {
+        width: 80%;
+    }
+
+    .section-medical-info {
+        display: grid;
+        grid-template-areas:
+        "role position" 
+        "department specialization"
+        "qualitfication qualitfication";
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        column-gap: 20px;
+    }
+
+    .section-medical-info input {
+        width: 80%;
+    }
+}

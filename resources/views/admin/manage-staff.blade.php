@@ -22,6 +22,7 @@
 
         <div class="content">
             <div class="page-header">
+                <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
                 <header>
                     <h1>Staff Management</h1>
                 </header>
@@ -51,8 +52,6 @@
                                 <img src="{{ asset('img/loupe.png') }}" alt="icon">
                             </div>
                         </form>
-                        <!-- <div class="search-icon"><img src="{{ asset('img/loupe.png') }}" alt="icon"></div>
-                        <div class="search-input"><input type="text"></div> -->
                     </div>
 
                     <div class="filter-group">
