@@ -18,6 +18,7 @@
 
     <div class="content">
         <div class="page-header">
+            <div class="sidebar-btn"><button class="sidebar-toggle" onclick="toggleSidebar()"><img src="{{ asset('img/hamburger.png') }}" alt="icon"></button></div>
             <header><h1>Past Appointments</h1></header>
         </div>
 

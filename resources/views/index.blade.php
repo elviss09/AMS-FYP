@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Selection</title>
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all-page.css') }}">
@@ -51,6 +52,10 @@
         }
         .btn-selection.patient:hover {
             background-color: #1e7e34;
+        }
+
+        @media (max-width: 1024px) {
+            
         }
     </style>
 </head>

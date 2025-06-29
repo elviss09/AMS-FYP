@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     git \
     libzip-dev \
     libpq-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
+    && docker-php-ext-install pdo pdo_pgsql pdo_mysql mbstring zip exif pcntl
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -20,20 +20,17 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Copy existing application directory contents
+# Copy application files
 COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Link storage (optional: if public disk is used)
+RUN php artisan storage:link || true
 
-# Expose port
+# Expose port for Laravel dev server
 EXPOSE 8000
 
-# Start Laravel
-CMD php artisan serve --host=0.0.0.0 --port=8000
-# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000", "--public", "public"]
-
-RUN docker-php-ext-install pdo_pgsql pgsql
-
-RUN php artisan storage:link
+# Default CMD (for web service)
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

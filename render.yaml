@@ -7,3 +7,13 @@ services:
       php artisan config:cache
     startCommand: php artisan serve --host=0.0.0.0 --port=10000
     plan: free
+
+  - type: worker
+    name: ams-scheduler
+    env: php
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+    startCommand: >
+      bash -c "while true; do php artisan schedule:run >> /dev/null 2>&1; sleep 60; done"
+    plan: free
