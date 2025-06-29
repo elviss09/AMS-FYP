@@ -22,7 +22,7 @@
             <div class="profile-container">
                 <form id="profileForm" method="POST" action="{{ route('admin.register-staff.store') }}">
                     @csrf
-                    <div class="content-header">Patient First-Time Registration</div>
+                    <div class="content-header">Register New Staff</div>
 
                     <div class="header-personal-details">
                         <span class="personal-details-icon"><img src="{{ asset('img/person.png') }}" alt="icon"></span> Personal Details

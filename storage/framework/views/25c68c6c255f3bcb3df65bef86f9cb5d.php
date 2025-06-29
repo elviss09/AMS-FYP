@@ -30,7 +30,9 @@
                     <div class="input-icon">
                         <div class="icon-password"><img src="<?php echo e(asset('img/lock.png')); ?>" alt="icon"></div>
                         <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                        <div class="icon-hide-pw"><img src="<?php echo e(asset('img/unhide.png')); ?>" alt="icon"></div>
+                        <div class="icon-hide-pw" id="togglePassword">
+                            <img id="toggleIcon" src="<?php echo e(asset('img/unhide.png')); ?>" alt="icon">
+                        </div>
                     </div>
                 </div>
 
@@ -42,6 +44,20 @@
             </form>
         </div>
     </div>
+<script>
+    document.getElementById("togglePassword").addEventListener("click", function() {
+        const passwordInput = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggleIcon");
+
+        const isPassword = passwordInput.getAttribute("type") === "password";
+        passwordInput.setAttribute("type", isPassword ? "text" : "password");
+
+        // Change icon image
+        toggleIcon.src = isPassword 
+            ? "<?php echo e(asset('img/hide.png')); ?>" 
+            : "<?php echo e(asset('img/unhide.png')); ?>";
+    });
+</script>
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\amslaravel\resources\views/auth/staff-login.blade.php ENDPATH**/ ?>

@@ -158,3 +158,8 @@ a.register-button {
     font-weight: 600;
     color: #3366FF;
 }
+
+
+@media (max-width: 1024px) {
+    
+}

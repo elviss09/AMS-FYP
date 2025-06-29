@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Mail\MyCustomMail;
 use Illuminate\Support\Facades\Mail;
@@ -84,6 +86,14 @@ Route::get('/test-mail', function () {
 // Default login route name expected by middleware
 Route::get('/login', [PatientLoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [PatientLoginController::class, 'login'])->name('patient.login');
+
+
+Route::post('/logout', function () {
+    Auth::guard('patient')->logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect()->route('index'); // Or any page you want after logout
+})->name('logout');
 
 Route::get('/patient-profile', [PatientProfileController::class, 'index'])->name('patient.profile');
 Route::post('/patient-profile', [PatientProfileController::class, 'update'])->name('patient.profile.update');
@@ -233,3 +243,16 @@ Route::get('/auth/patient-login', function () {
 Route::get('/auth/staff-login', function () {
     return view('auth.staff-login');  // <-- Add 'auth.' prefix
 })->name('staff.login.page');
+
+
+Route::get('/', function () {
+    return view('index');
+})->name('index');
+
+
+Route::post('/clear-appointment-limit', function () {
+    Log::info('Appointment limit session cleared.');
+    session()->forget('appointment_limit');
+    return response()->json(['status' => 'cleared']);
+})->name('clear.appointment.limit');
+

@@ -6,7 +6,7 @@
     display: grid;
     grid-template-areas: 
     "recent setting";
-    grid-template-columns: auto 400px;
+    grid-template-columns: auto 350px;
     width: 100%;
     column-gap: 20px;
 }
@@ -24,6 +24,7 @@
     border-radius: 15px;
     height: fit-content;
 }
+
 
 .header-box {
     grid-area: header;
@@ -81,7 +82,7 @@
     "icon title mark"
     "icon details mark"
     "icon time mark";
-    grid-template-columns: 50px auto 50px;
+    grid-template-columns: 40px auto 50px;
     column-gap: 20px;
     align-items: center;
     border-radius: 12px;

@@ -80,6 +80,21 @@ body {
     text-align: center;
 }
 
+.input-icon {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #353535;
+    background: white;
+}
+
+.input-icon img {
+    width: 28px;
+}
+
 .input-group.otp input {
     text-align: center;  /* Center text horizontally */
     font-weight: 600;
@@ -113,6 +128,17 @@ input {
     color: #353535;
 }
 
+.input-group.step2 input {
+    width: 94%;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #353535;
+    background: transparent;
+    outline: none;
+}
+
 input::placeholder {
     color: #A5A5A5;
 }
@@ -144,4 +170,22 @@ button {
 
 button:hover {
     background-color: #1e4bb8;
+}
+
+.icon-hide-pw {
+    display: flex;
+    align-items: center;
+}
+
+.icon-hide-pw:hover {
+    cursor: pointer;
+}
+
+.icon-hide-pw img {
+    width: 26px;
+    transition: transform 0.2s ease;
+}
+
+.icon-hide-pw img:hover {
+    transform: scale(1.1);
 }

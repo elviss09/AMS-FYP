@@ -118,10 +118,42 @@
                     </div>
                 </div>
             </div>
+
+            <div id="limitModal" class="popup-box limit" style="display: none;">
+                <div class="popup-content limit">
+                    <div class="alert-icon"><img src="{{ asset('img/alert.png') }}" alt="icon"></div>
+                    <div class="popup-header">Appointment Limit Reached</div>
+                    <div class="confirm-details">
+                        <p>You have reached the maximum number of appointment requests.</p>
+                        <p>Please contact <strong>PKP UNIMAS</strong> if you are facing issues with your requests.</p>
+                        <p>Email: <strong>pkp.unimas@unimas.my</strong><br> Telephone: <strong>082 56781</strong></p>
+                    </div>
+                    <div class="popup-actions">
+                        <button class="confirm-btn" type="button" onclick="closePopup('limitModal')">OK</button>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>
+@if (session('appointment_limit'))
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show the modal
+            document.getElementById('limitModal').style.display = 'flex';
 
+            // Clear the session variable so it won't show again
+            fetch("{{ route('clear.appointment.limit') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+            });
+        });
+    </script>
+@endif
 <script>
     // Toast Notification Function
     function createToast(type, icon, title, text) {

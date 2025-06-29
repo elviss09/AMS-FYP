@@ -30,7 +30,9 @@
                     <div class="input-icon">
                         <div class="icon-password"><img src="{{ asset('img/lock.png') }}" alt="icon"></div>
                         <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                        <div class="icon-hide-pw"><img src="{{ asset('img/unhide.png') }}" alt="icon"></div>
+                        <div class="icon-hide-pw" id="togglePassword">
+                            <img id="toggleIcon" src="{{ asset('img/unhide.png') }}" alt="icon">
+                        </div>
                     </div>
                 </div>
 
@@ -42,5 +44,19 @@
             </form>
         </div>
     </div>
+<script>
+    document.getElementById("togglePassword").addEventListener("click", function() {
+        const passwordInput = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggleIcon");
+
+        const isPassword = passwordInput.getAttribute("type") === "password";
+        passwordInput.setAttribute("type", isPassword ? "text" : "password");
+
+        // Change icon image
+        toggleIcon.src = isPassword 
+            ? "{{ asset('img/hide.png') }}" 
+            : "{{ asset('img/unhide.png') }}";
+    });
+</script>
 </body>
 </html>

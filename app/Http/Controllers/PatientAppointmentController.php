@@ -66,6 +66,22 @@ class PatientAppointmentController extends Controller
     {
         $patientId = session('patient_id');
 
+        $existingRequestCount = DB::table('appointments')
+            ->where('patient_id', $patientId)
+            ->where('status', 'Pending')
+            ->where('created_at', '>=', now()->subMonth())
+            ->count();
+
+        // if ($existingRequestCount >= 5) {
+        //     return redirect()->route('patient.appointment.create')->with('error', 'You have reached the maximum number of appointment requests. Please contact PKP UNIMAS if you’re facing issues.');
+        // }
+
+        if ($existingRequestCount >= 5) {
+            return redirect()->route('patient.appointment.create')
+                ->with('appointment_limit', true);
+        }
+
+
         // ✅ Validate inputs
         $request->validate([
             'appointment_type'    => 'required|string',

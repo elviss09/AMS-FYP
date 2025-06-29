@@ -72,7 +72,7 @@
     border-radius: 10px;
 }
 
-.navi-bar a {
+.navi-bar a, .navi-bar form {
     display: flex;
     align-items: center; /* Align icon & text */
     gap: 10px; /* Space between icon and text */
@@ -87,7 +87,25 @@
     text-decoration: none;
 }
 
-.navi-bar a:hover {
+.navi-bar button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    gap: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    text-decoration: none;
+    padding: 1px 3px;
+}
+
+.navi-bar a:hover, .navi-bar form:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
 }
 

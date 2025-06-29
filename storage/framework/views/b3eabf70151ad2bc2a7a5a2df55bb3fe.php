@@ -75,6 +75,15 @@
                     <span class="badge"><?php echo e($unreadCount); ?></span>
                 <?php endif; ?>
             </a>
+            <form method="POST" action="<?php echo e(route('staff.logout')); ?>">
+                <?php echo csrf_field(); ?>
+                <button type="submit" class="<?php echo e(request()->is('staff-logout') ? 'active' : ''); ?>" >
+                    <span class="record-icon">
+                        <img src="<?php echo e(asset('img/exit.png')); ?>" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
 
         <?php elseif($staff->role == 'Nurse'): ?>
             <a href="<?php echo e(route('nurse.dashboard')); ?>" class="<?php echo e(request()->routeIs('nurse.dashboard') ? 'active' : ''); ?>">
@@ -98,6 +107,15 @@
                     <span class="badge"><?php echo e($unreadCount); ?></span>
                 <?php endif; ?>
             </a>
+            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                <?php echo csrf_field(); ?>
+                <button type="submit" class="<?php echo e(request()->is('logout') ? 'active' : ''); ?>" >
+                    <span class="record-icon">
+                        <img src="<?php echo e(asset('img/exit.png')); ?>" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
 
         <?php elseif($staff->role == 'System Admin'): ?>
             <a href="<?php echo e(route('admin.dashboard')); ?>" class="<?php echo e(request()->routeIs('admin.dashboard') ? 'active' : ''); ?>">
@@ -109,6 +127,15 @@
             <a href="<?php echo e(route('admin.manage-staff')); ?>" class="<?php echo e(request()->routeIs('admin.manage-staff') ? 'active' : ''); ?>">
                 <span class="req-appointment-icon"><img src="<?php echo e(asset('img/calendar-req.png')); ?>" alt="icon"></span> Staff Management
             </a>
+            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                <?php echo csrf_field(); ?>
+                <button type="submit" class="<?php echo e(request()->is('logout') ? 'active' : ''); ?>" >
+                    <span class="record-icon">
+                        <img src="<?php echo e(asset('img/exit.png')); ?>" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
         <?php endif; ?>
     </div>
 </div>

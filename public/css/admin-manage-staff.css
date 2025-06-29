@@ -395,6 +395,10 @@
         background-color: white;
         color: #505050;
     }
+
+    .search-bar {
+        width: 250px;
+    }
 }
 
 

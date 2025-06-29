@@ -73,6 +73,15 @@
                     <span class="badge">{{ $unreadCount }}</span>
                 @endif
             </a>
+            <form method="POST" action="{{ route('staff.logout') }}">
+                @csrf
+                <button type="submit" class="{{ request()->is('staff-logout') ? 'active' : '' }}" >
+                    <span class="record-icon">
+                        <img src="{{ asset('img/exit.png') }}" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
 
         @elseif ($staff->role == 'Nurse')
             <a href="{{ route('nurse.dashboard') }}" class="{{ request()->routeIs('nurse.dashboard') ? 'active' : '' }}">
@@ -96,6 +105,15 @@
                     <span class="badge">{{ $unreadCount }}</span>
                 @endif
             </a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="{{ request()->is('logout') ? 'active' : '' }}" >
+                    <span class="record-icon">
+                        <img src="{{ asset('img/exit.png') }}" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
 
         @elseif ($staff->role == 'System Admin')
             <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
@@ -107,6 +125,15 @@
             <a href="{{ route('admin.manage-staff') }}" class="{{ request()->routeIs('admin.manage-staff') ? 'active' : '' }}">
                 <span class="req-appointment-icon"><img src="{{ asset('img/calendar-req.png') }}" alt="icon"></span> Staff Management
             </a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="{{ request()->is('logout') ? 'active' : '' }}" >
+                    <span class="record-icon">
+                        <img src="{{ asset('img/exit.png') }}" alt="Logout Icon">
+                    </span>
+                    <span class="logout-icon">Logout</span>
+                </button>
+            </form>
         @endif
     </div>
 </div>

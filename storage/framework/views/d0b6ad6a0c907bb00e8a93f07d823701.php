@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/font.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/all-page.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/patient-sidebar.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('css/patient-dashboard.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/dashboard.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/patient-calendar.css')); ?>">
 </head>
 <body>

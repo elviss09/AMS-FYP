@@ -47,10 +47,11 @@
 }
 
 .user-details-1 p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 200;
     line-height: 8px;
     letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
 }
 
 .user-type {
@@ -87,8 +88,8 @@
     border-left: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.details-heading {
-    font-size: 12px;
+p.details-heading {
+    font-size: 14px;
     color: white;
     font-weight: 200;
     letter-spacing: 1px;
@@ -105,12 +106,13 @@
     border-radius: 10px;
 }
 
-.navi-bar a {
+.navi-bar a, .navi-bar form {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px 20px;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
@@ -119,7 +121,26 @@
     text-decoration: none;
 }
 
-.navi-bar a:hover {
+.navi-bar button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    gap: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    text-decoration: none;
+    padding: 1px 3px;
+}
+
+
+.navi-bar a:hover, .navi-bar form:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 

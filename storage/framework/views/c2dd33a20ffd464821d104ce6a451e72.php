@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Patient</title>
     <link rel="stylesheet" href="<?php echo e(asset('css/font.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/all-page.css')); ?>">
@@ -21,7 +22,7 @@
             <div class="profile-container">
                 <form id="profileForm" method="POST" action="<?php echo e(route('admin.register-staff.store')); ?>">
                     <?php echo csrf_field(); ?>
-                    <div class="content-header">Patient First-Time Registration</div>
+                    <div class="content-header">Register New Staff</div>
 
                     <div class="header-personal-details">
                         <span class="personal-details-icon"><img src="<?php echo e(asset('img/person.png')); ?>" alt="icon"></span> Personal Details

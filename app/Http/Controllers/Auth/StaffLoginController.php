@@ -48,10 +48,13 @@ class StaffLoginController extends Controller
         return back()->withErrors(['login' => 'Invalid Staff ID or Password'])->withInput();
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('staff')->logout();
-        session()->forget(['staff_id', 'role']);
-        return redirect()->route('staff.login.form');
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('index'); // ✅ Redirects to index.blade.php
     }
 }

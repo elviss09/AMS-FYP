@@ -66,15 +66,17 @@ $currentPage = request()->path();
                 <span class="badge"><?php echo e($unreadCount); ?></span>
             <?php endif; ?>
         </a>
+        <form method="POST" action="<?php echo e(route('logout')); ?>">
+            <?php echo csrf_field(); ?>
+            <button type="submit" class="<?php echo e(request()->is('logout') ? 'active' : ''); ?>" >
+                <span class="record-icon">
+                    <img src="<?php echo e(asset('img/exit.png')); ?>" alt="Logout Icon">
+                </span>
+                <span class="logout-icon">Logout</span>
+            </button>
+        </form>
     </div>
 </div>
-
-<!-- Sidebar Toggle Script -->
-<!-- <script>
-    function toggleSidebar() {
-        document.querySelector('.sidebar').classList.toggle('active');
-    }
-</script> -->
 
 <script>
     function toggleSidebar() {

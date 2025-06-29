@@ -37,8 +37,10 @@ select {
 
 option {
     font-size: 14px;
+    border-radius: 5px;
     font-family: 'Inter', sans-serif;
 }
+
 
 button {
     font-size: 14px;
@@ -218,6 +220,35 @@ button {
     border-radius: 10px;
     /* width: 400px; */
     text-align: left;
+}
+
+.popup-content.limit {
+    background: #fff;
+    padding: 20px 50px;
+    border-radius: 10px;
+    /* width: 400px; */
+    text-align: center;
+}
+
+.alert-icon img {
+    width: 80px;
+}
+
+.popup-content.limit > .popup-header {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.popup-content.limit > .confirm-details {
+    width: 350px;
+}
+
+.popup-content.limit > .popup-actions {
+    text-align: center;
+}
+
+.popup-content.limit > .popup-actions button {
+    padding: 10px 20px;
 }
 
 .popup-actions {

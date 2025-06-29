@@ -1,6 +1,5 @@
 .content {
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
@@ -133,7 +132,7 @@
     display: grid;
     grid-template-areas: 
     "role position department"
-    "specialization qualitfication qualitfication";
+    "specialization qualification qualification";
     grid-template-columns: 300px 300px auto;
     row-gap: 30px;
     column-gap: 50px;

@@ -34,14 +34,24 @@
             <form action="{{ route('create.acc.handleStep2') }}" method="POST">
                 @csrf
 
-                <div class="input-group">
+                <div class="input-group step2">
                     <label for="password">New Password</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                    <div class="input-icon">
+                        <input type="password" id="password" name="password" id="password" placeholder="Enter your password" required>
+                        <div class="icon-hide-pw" id="togglePassword">
+                            <img id="toggleIcon" src="{{ asset('img/unhide.png') }}" alt="icon">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group step2">
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+                    <div class="input-icon">
+                        <input type="password" id="password2" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+                        <div class="icon-hide-pw" id="togglePassword2">
+                            <img id="toggleIcon2" src="{{ asset('img/unhide.png') }}" alt="icon">
+                        </div>
+                    </div>
                 </div>
 
                 @if ($errors->any())
@@ -54,5 +64,32 @@
             </form>
         </div>
     </div>
+<script>
+    document.getElementById("togglePassword").addEventListener("click", function() {
+        const passwordInput = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggleIcon");
+
+        const isPassword = passwordInput.getAttribute("type") === "password";
+        passwordInput.setAttribute("type", isPassword ? "text" : "password");
+
+        // Change icon image
+        toggleIcon.src = isPassword 
+            ? "{{ asset('img/hide.png') }}" 
+            : "{{ asset('img/unhide.png') }}";
+    });
+
+    document.getElementById("togglePassword2").addEventListener("click", function() {
+        const passwordInput = document.getElementById("password2");
+        const toggleIcon = document.getElementById("toggleIcon2");
+
+        const isPassword = passwordInput.getAttribute("type") === "password";
+        passwordInput.setAttribute("type", isPassword ? "text" : "password");
+
+        // Change icon image
+        toggleIcon.src = isPassword 
+            ? "{{ asset('img/hide.png') }}" 
+            : "{{ asset('img/unhide.png') }}";
+    });
+</script>
 </body>
 </html>

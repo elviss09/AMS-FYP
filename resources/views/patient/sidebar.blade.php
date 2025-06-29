@@ -66,6 +66,15 @@ $currentPage = request()->path();
                 <span class="badge">{{ $unreadCount }}</span>
             @endif
         </a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="{{ request()->is('logout') ? 'active' : '' }}" >
+                <span class="record-icon">
+                    <img src="{{ asset('img/exit.png') }}" alt="Logout Icon">
+                </span>
+                <span class="logout-icon">Logout</span>
+            </button>
+        </form>
     </div>
 </div>
 
