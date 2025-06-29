@@ -23,7 +23,9 @@ class SendAppointmentReminders extends Command
     }
 
     public function handle()
-    {
+    {   
+        \Log::info('🟢 [reminders:send] Command started at ' . now());
+        
         // Always set timezone Malaysia
         date_default_timezone_set('Asia/Kuala_Lumpur');
         $now = Carbon::now();
@@ -32,10 +34,14 @@ class SendAppointmentReminders extends Command
             ->whereDate('appointment_date', '>=', $now->toDateString())
             ->with(['patient', 'section'])  // <-- add 'section' relation here
             ->get();
+        
+            \Log::info("🗂 Found " . $appointments->count() . " approved appointments to check.");
 
         foreach ($appointments as $appointment) {
             $patient = $appointment->patient;
             if (!$patient) continue;
+            \Log::info("👤 Checking patient: " . $patient->full_name . " | Email: " . $patient->email);
+
 
             $appointmentDate = Carbon::parse($appointment->appointment_date);
 
@@ -69,7 +75,7 @@ class SendAppointmentReminders extends Command
                 $patient->notify_1day &&
                 !$appointment->reminded_1day &&
                 $now->isSameDay($oneDayBefore) &&
-                $now->format('H:i') >= '05:47'
+                $now->format('H:i') >= '05:59'
             ) {
                 $this->sendReminder($patient, $appointment, '1 day');
                 $appointment->reminded_1day = 1;
@@ -80,7 +86,9 @@ class SendAppointmentReminders extends Command
     }
 
     protected function sendReminder($patient, $appointment, $reminderTime)
-    {
+    {   
+        \Log::info("✉️ Sending reminder email to {$patient->email} for {$reminderTime} before appointment.");
+
         // Format appointment date and time
         $appointmentDateFormatted = Carbon::parse($appointment->appointment_date)->format('d M Y');
         $appointmentTimeFormatted = Carbon::parse($appointment->appointment_time)->format('h:i A');
