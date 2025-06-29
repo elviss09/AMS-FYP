@@ -102,6 +102,7 @@ return [
                 'verify_peer_name' => false,
             ],
         ],
+
     ],
 
     /*
