@@ -69,7 +69,7 @@ class SendAppointmentReminders extends Command
                 $patient->notify_1day &&
                 !$appointment->reminded_1day &&
                 $now->isSameDay($oneDayBefore) &&
-                $now->format('H:i') >= '02:55'
+                $now->format('H:i') >= '03:15'
             ) {
                 $this->sendReminder($patient, $appointment, '1 day');
                 $appointment->reminded_1day = 1;
