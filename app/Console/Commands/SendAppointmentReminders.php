@@ -90,9 +90,16 @@ class SendAppointmentReminders extends Command
         $sectionName = $appointment->section->section_name ?? 'PKP UNIMAS';
         $doctorName = $appointment->doctor_name ?? '-';
 
+        try {
+            Mail::to($patient->email)->send(new \App\Mail\AppointmentReminder($patient, $appointment, $reminderTime));
+            $this->info("Email reminder sent to {$patient->email}");
+            } catch (\Exception $e) {
+            $this->error("Failed to send email: " . $e->getMessage());
+            }
+
         // Email Reminder
-        Mail::to($patient->email)->send(new \App\Mail\AppointmentReminder($patient, $appointment, $reminderTime));
-        $this->info("Email reminder sent to {$patient->email} for appointment on {$appointment->appointment_date} ({$reminderTime} before).");
+        // Mail::to($patient->email)->send(new \App\Mail\AppointmentReminder($patient, $appointment, $reminderTime));
+        // $this->info("Email reminder sent to {$patient->email} for appointment on {$appointment->appointment_date} ({$reminderTime} before).");
 
         // WhatsApp Reminder (only if phone number exists)
         if (!empty($patient->phone_no)) {
