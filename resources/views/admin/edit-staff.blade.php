@@ -117,9 +117,18 @@
                         <div class="department">
                             <div class="details-title">Division</div>
                             <div class="details-info">
-                                <input type="text" name="department" value="{{ $staff->section_name }}" readonly>
+                                <select name="Division" required>
+                                    <option value="">-- Select Section --</option>
+                                    @foreach ($sections as $section)
+                                        <option value="{{ $section->section_id }}" 
+                                            {{ $staff->working_section == $section->section_id ? 'selected' : '' }}>
+                                            {{ $section->section_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
 
                         @if ($doctor)
                         <div class="specilaization">
@@ -187,6 +196,7 @@
         specialization: "Specialization",
         qualification: "Qualification"
     };
+    
 
     window.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('profileForm');

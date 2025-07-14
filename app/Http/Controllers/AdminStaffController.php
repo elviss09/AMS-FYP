@@ -60,6 +60,8 @@ class AdminStaffController extends Controller
                       ->where('staff.staff_id', $id)
                       ->firstOrFail();
 
+        $sections = HospitalSection::all();
+
         // Check if doctor or nurse
         $doctor = Doctor::where('staff_id', $id)->first();
         $nurse = Nurse::where('staff_id', $id)->first();
@@ -68,6 +70,7 @@ class AdminStaffController extends Controller
             'staff' => $staff,
             'doctor' => $doctor,
             'nurse' => $nurse,
+            'sections' => $sections,
         ]);
     }
 
@@ -167,22 +170,6 @@ class AdminStaffController extends Controller
             'register_date' => Carbon::now(), // Or Carbon::now() if you're not using timestamps
             'password' => null, // Or bcrypt() if you're setting it later
         ]);
-
-
-
-        // Create Staff
-        // $staff = new Staff();
-        // $staff->full_name = $request->fname;
-        // $staff->date_of_birth = $request->dob;
-        // $staff->gender = $request->gender;
-        // $staff->phone_no = $request->phone_no;
-        // $staff->email = $request->email;
-        // $staff->emergency_contact = $request->emergency_contact;
-        // $staff->emergency_relationship = $request->emergency_relationship;
-        // $staff->role = $request->role;
-        // $staff->position = $request->position;
-        // $staff->working_section = $request->section_id;
-        // $staff->save();
 
         // Create role-specific record
         if ($request->role === 'Doctor') {

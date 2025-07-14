@@ -152,6 +152,10 @@
     transition: border 0.3s ease, background-color 0.3s ease;
 }
 
+.department > .details-info select {
+    width: 100%;
+}
+
 .details-info select:focus {
     border-color: #326dec;
     background-color: #f1f8ff;

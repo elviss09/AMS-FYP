@@ -187,7 +187,7 @@ class AppointmentRecordController extends Controller
         $appointment->appointment_time = $validated['appointment_time'];
 
         // Change status back to pending
-        $appointment->status = 'pending';
+        $appointment->status = 'Pending';
 
         // Handle file upload
         if ($request->hasFile('referral_letter')) {

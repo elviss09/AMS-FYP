@@ -117,9 +117,19 @@
                         <div class="department">
                             <div class="details-title">Division</div>
                             <div class="details-info">
-                                <input type="text" name="department" value="<?php echo e($staff->section_name); ?>" readonly>
+                                <select name="Division" required>
+                                    <option value="">-- Select Section --</option>
+                                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($section->section_id); ?>" 
+                                            <?php echo e($staff->working_section == $section->section_id ? 'selected' : ''); ?>>
+                                            <?php echo e($section->section_name); ?>
+
+                                        </option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
                         </div>
+
 
                         <?php if($doctor): ?>
                         <div class="specilaization">
@@ -187,6 +197,7 @@
         specialization: "Specialization",
         qualification: "Qualification"
     };
+    
 
     window.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('profileForm');
