@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Appointment Calendar</title>
     <link rel="stylesheet" href="{{ asset('css/request-appointment-calendar.css') }}">
-
     <style>
         .day-box.holiday {
             color:rgb(255, 0, 25);

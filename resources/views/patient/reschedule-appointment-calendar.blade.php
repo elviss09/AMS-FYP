@@ -5,8 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Appointment Calendar</title>
     <link rel="stylesheet" href="{{ asset('css/request-appointment-calendar.css') }}">
+    <style>
+        .day-box.holiday {
+            color:rgb(255, 0, 25);
+            cursor: not-allowed;
+            opacity: 100%;
+        }
+
+        .day-box.holiday:hover {
+            background-color: #f8d7da;
+        }
+    </style>
 </head>
 <body>
+
+@php
+    use Illuminate\Support\Facades\DB;
+
+    $publicHolidays = DB::table('public_holidays')
+        ->get()
+        ->mapWithKeys(fn($holiday) => [
+            \Carbon\Carbon::parse($holiday->holiday_date)->format('Y-m-d') => $holiday->description
+        ])
+        ->toArray();
+@endphp
+
 
 <div class="calendar-container req-appointment-calendar" data-selected-date="{{ $appointment->appointment_date }}">
     <div class="calendar-header">
@@ -33,6 +56,8 @@
 </div>
 
 <script>
+    const publicHolidays = <?php echo json_encode($publicHolidays); ?>;
+    
     const monthYear = document.getElementById("monthYear");
     const calendar = document.getElementById("calendar");
     const prevMonthBtn = document.getElementById("prevMonth");
@@ -77,29 +102,31 @@
 
             const dateToCheck = new Date(year, month, day);
             dateToCheck.setHours(0, 0, 0, 0);
+            const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const isToday = dateToCheck.getTime() === today.getTime();
+            const isPast = dateToCheck < today;
+            const isHoliday = publicHolidays.hasOwnProperty(formattedDate);
 
-            if (dateToCheck <= today) {
+            if (isPast || isToday || isHoliday) {
                 dayBox.classList.add("disabled");
-                if (dateToCheck.getTime() === today.getTime()) {
-                    dayBox.classList.add("today");
+                if (isToday) dayBox.classList.add("today");
+                if (isHoliday) {
+                    dayBox.classList.add("holiday");
+                    dayBox.title = publicHolidays[formattedDate] || "Holiday";
                 }
             } else {
                 dayBox.addEventListener("click", () => {
                     document.querySelectorAll(".day-box").forEach(box => box.classList.remove("selected"));
                     dayBox.classList.add("selected");
 
-                    const selectedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
+                    const selectedDate = formattedDate;
                     const selectedDateElem = document.querySelector(".selected-date");
                     if (selectedDateElem) {
-                        // Update the visual text
                         selectedDateElem.textContent = new Date(selectedDate).toLocaleDateString('en-MY', {
                             day: 'numeric',
                             month: 'long',
                             year: 'numeric'
                         });
-
-                        // ✅ Update the data-date attribute
                         selectedDateElem.setAttribute("data-date", selectedDate);
                     }
 
@@ -124,8 +151,6 @@
                             month: 'long',
                             year: 'numeric'
                         });
-
-                        // ✅ Also set initial data-date
                         selectedDateElem.setAttribute("data-date", selectedDateAttr);
                     }
                 }
