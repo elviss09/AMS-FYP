@@ -72,9 +72,9 @@ class PatientAppointmentController extends Controller
             ->where('created_at', '>=', now()->subMonth())
             ->count();
 
-        // if ($existingRequestCount >= 5) {
-        //     return redirect()->route('patient.appointment.create')->with('error', 'You have reached the maximum number of appointment requests. Please contact PKP UNIMAS if you’re facing issues.');
-        // }
+        if ($existingRequestCount >= 6) {
+            return redirect()->route('patient.appointment.create')->with('error', 'You have reached the maximum number of appointment requests. Please contact PKP UNIMAS if you’re facing issues.');
+        }
 
         if ($existingRequestCount >= 5) {
             return redirect()->route('patient.appointment.create')

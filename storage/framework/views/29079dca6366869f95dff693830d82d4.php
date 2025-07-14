@@ -116,7 +116,7 @@
                 <?php $__currentLoopData = $staff; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="staff-card">
                         <div class="staff-info">
-                            <div class="user-icon"><img src="<?php echo e(asset('img/human.png')); ?>" alt="Profile Picture"></div>
+                            <div class="user-icon-card"><img src="<?php echo e(asset('img/human.png')); ?>" alt="Profile Picture"></div>
                             <div class="name-position-threedot">
                                 <div class="name-position">
                                     <div class="name"><?php echo e($member->full_name); ?></div>

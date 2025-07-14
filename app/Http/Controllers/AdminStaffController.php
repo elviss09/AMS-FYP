@@ -7,6 +7,7 @@ use App\Models\Staff;
 use App\Models\Doctor;
 use App\Models\Nurse;
 use App\Models\HospitalSection;
+use Carbon\Carbon;
 
 class AdminStaffController extends Controller
 {
@@ -17,6 +18,9 @@ class AdminStaffController extends Controller
 
         // Build the query dynamically
         $query = Staff::query();
+
+        // ✅ Exclude inactive staff
+        $query->where('contract_status', '!=', 'inactive');
 
         if ($request->filled('section')) {
             $query->where('working_section', $request->section);
@@ -30,7 +34,6 @@ class AdminStaffController extends Controller
             $query->whereIn('role', $request->role);
         }
 
-        // ✅ Move this BEFORE get()
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
@@ -39,16 +42,14 @@ class AdminStaffController extends Controller
             });
         }
 
-        // ✅ Only get() once, after all filters are applied
         $staff = $query->get();
 
         return view('admin.manage-staff', [
             'sections' => $sections,
             'staff' => $staff,
-            'request' => $request, // pass request for form repopulation
+            'request' => $request,
         ]);
     }
-
 
 
     public function edit($id)
@@ -111,16 +112,14 @@ class AdminStaffController extends Controller
 
     public function remove($id)
     {
-        // Delete related doctor or nurse records first (optional, if foreign key constraints not set)
-        Doctor::where('staff_id', $id)->delete();
-        Nurse::where('staff_id', $id)->delete();
-
-        // Delete staff
+        // Set staff's contract status to 'inactive' instead of deleting
         $staff = Staff::findOrFail($id);
-        $staff->delete();
+        $staff->contract_status = 'Inactive';
+        $staff->save();
 
-        return redirect()->route('admin.manage-staff')->with('success', 'Staff member successfully removed.');
+        return redirect()->route('admin.manage-staff')->with('success', 'Staff member removed.');
     }
+
 
 
     public function create()
@@ -154,7 +153,7 @@ class AdminStaffController extends Controller
 
         $staff = Staff::create([
             'full_name' => $validated['fname'],
-            'patient_id' => $validated['mykad'],
+            'age' => Carbon::parse($validated['dob'])->age, // Must be calculated beforehand
             'date_of_birth' => $validated['dob'],
             'gender' => $validated['gender'],
             'phone_no' => $validated['phone_no'],
@@ -164,7 +163,11 @@ class AdminStaffController extends Controller
             'role' => $validated['role'],
             'position' => $validated['position'],
             'working_section' => $validated['section_id'],
+            'contract_status' => 'Active', // Or get from form if needed
+            'register_date' => Carbon::now(), // Or Carbon::now() if you're not using timestamps
+            'password' => null, // Or bcrypt() if you're setting it later
         ]);
+
 
 
         // Create Staff

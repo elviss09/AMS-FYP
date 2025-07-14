@@ -40,7 +40,7 @@
             </script>
         @endif
 
-        <form id="appointment-form" method="POST" action="{{ route('patient.appointment.update', ['id' => $appointment->appointment_id]) }}" enctype="multipart/form-data" class="appointment-form">
+        <form id="appointment-form" method="POST" action="{{ route('patient.appointment.updateChangeRequested', ['id' => $appointment->appointment_id]) }}" enctype="multipart/form-data" class="appointment-form">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -90,7 +90,7 @@
 
             <div class="select-date-time">
                 <div class="req-appointment-calendar" data-selected-date="{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('Y-m-d') }}">
-                    @include('patient.edit-appointment-calendar')
+                    @include('patient.reschedule-appointment-calendar')
                 </div>
 
                 <div class="time-slot">

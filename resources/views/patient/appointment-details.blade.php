@@ -79,13 +79,20 @@
                         $status = strtolower($appointment->status);
                     @endphp
 
-                    @if ($status === 'pending' || $status === 'change requested')
+                    @if ($status === 'pending')
                         <a class="delete-button" href="{{ route('patient.delete-appointment', ['id' => $appointment->appointment_id]) }}" 
-                           onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
-                        <a class="edit-button" href="{{ route('patient.edit-appointment', ['id' => $appointment->appointment_id]) }}">Edit</a>
+                        onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
+                        <a class="reschedule-button" href="{{ route('patient.reschedule-appointment', ['id' => $appointment->appointment_id]) }}">Reschedule</a>
+
+                    @elseif ($status === 'change requested')
+                        <a class="delete-button" href="{{ route('patient.delete-appointment', ['id' => $appointment->appointment_id]) }}" 
+                        onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
+                        <a class="reschedule-button" href="{{ route('patient.edit-appointment', ['id' => $appointment->appointment_id]) }}">Edit</a>
+
                     @elseif ($status === 'approved')
                         <a class="delete-button" href="{{ route('patient.cancel-appointment', ['id' => $appointment->appointment_id]) }}" 
-                           onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel</a>
+                        onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel</a>
+                        <a class="reschedule-button" href="{{ route('patient.reschedule-appointment', ['id' => $appointment->appointment_id]) }}">Reschedule</a>
                     @endif
                 </div>
             </div>

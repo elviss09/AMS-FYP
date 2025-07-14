@@ -256,7 +256,6 @@
     }
 
 
-
     // Calculate Age based on DOB
     function calculateAge() {
         const dobInput = document.getElementById('dob').value;

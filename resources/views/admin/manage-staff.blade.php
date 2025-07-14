@@ -115,7 +115,7 @@
                 @foreach ($staff as $member)
                     <div class="staff-card">
                         <div class="staff-info">
-                            <div class="user-icon"><img src="{{ asset('img/human.png') }}" alt="Profile Picture"></div>
+                            <div class="user-icon-card"><img src="{{ asset('img/human.png') }}" alt="Profile Picture"></div>
                             <div class="name-position-threedot">
                                 <div class="name-position">
                                     <div class="name">{{ $member->full_name }}</div>

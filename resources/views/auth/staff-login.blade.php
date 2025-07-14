@@ -41,6 +41,10 @@
                 @endif
 
                 <button type="submit" class="btn">Log In</button>
+
+                <div style="text-align: right; font-style:italic">
+                    <a href="{{ route('staff.create.password') }}" style="font-size: 14px; color: #007bff;">New Staff? Create your password first.</a>
+                </div>
             </form>
         </div>
     </div>

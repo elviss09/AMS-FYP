@@ -222,12 +222,12 @@
     background-color: #159443;
 }
 
-.edit-button, .request-change-button {
+.edit-button, .request-change-button, .reschedule-button {
     background-color: #326DEC;
     color: white;
 }
 
-.edit-button:hover, .request-change-button:hover {
+.edit-button:hover, .request-change-button:hover, .reschedule-button:hover {
     background-color: #2B5FCC;
 }
 
@@ -235,6 +235,7 @@
     background-color: #BFBFBF;
     color: white;
 }
+
 
 .appointment-type input, .refer-to input, .section-facility input, .assigned-doctor input {
     width: 70%;

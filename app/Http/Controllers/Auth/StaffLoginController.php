@@ -57,4 +57,65 @@ class StaffLoginController extends Controller
 
         return redirect()->route('index'); // ✅ Redirects to index.blade.php
     }
+
+    public function showStep1()
+    {
+        return view('auth.passwords.staff-input-id'); // Matches your Blade file name
+    }
+
+
+    public function handleStep1(Request $request)
+    {
+        $request->validate([
+            'staff-id' => 'required|string'
+        ]);
+
+        $staff = \App\Models\Staff::where('staff_id', $request->input('staff-id'))->first();
+
+        if (!$staff) {
+            return back()->withErrors(['staff-id' => 'Staff ID not found.']);
+        }
+
+        if ($staff->password) {
+            return back()->withErrors(['staff-id' => 'Password already set. Please log in.']);
+        }
+
+        // Save to session and redirect to Step 2
+        session(['creating_staff_id' => $staff->staff_id]);
+        return redirect()->route('create.acc.step2');
+    }
+
+
+
+    public function showCreatePassword()
+    {
+        return view('auth.passwords.staff-create-password');
+    }
+
+    public function handleStep2(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $staffId = session('creating_staff_id');
+
+        if (!$staffId) {
+            return redirect()->route('staff.create.password');
+        }
+
+        $staff = Staff::where('staff_id', $staffId)->first();
+
+        if (!$staff) {
+            return redirect()->route('staff.create.password')->withErrors(['error' => 'Staff not found.']);
+        }
+
+        $staff->password = Hash::make($request->password);
+        $staff->save();
+
+        session()->forget('creating_staff_id');
+
+        return redirect()->route('staff.login.form')->with('success', 'Password created successfully! You can now log in.');
+    }
+
 }

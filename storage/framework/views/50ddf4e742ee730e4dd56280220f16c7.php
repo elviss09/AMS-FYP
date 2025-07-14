@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Record</title>
-
     <link rel="stylesheet" href="<?php echo e(asset('css/font.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/all-page.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/patient-sidebar.css')); ?>">

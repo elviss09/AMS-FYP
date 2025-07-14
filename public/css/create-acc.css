@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+.container-login {
+    text-align: center;
+}
+
 .page-title {
     margin-top: 150px;
     margin-bottom: 50px;

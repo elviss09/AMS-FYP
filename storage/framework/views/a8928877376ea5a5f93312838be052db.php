@@ -80,13 +80,20 @@
                         $status = strtolower($appointment->status);
                     ?>
 
-                    <?php if($status === 'pending' || $status === 'change requested'): ?>
+                    <?php if($status === 'pending'): ?>
                         <a class="delete-button" href="<?php echo e(route('patient.delete-appointment', ['id' => $appointment->appointment_id])); ?>" 
-                           onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
-                        <a class="edit-button" href="<?php echo e(route('patient.edit-appointment', ['id' => $appointment->appointment_id])); ?>">Edit</a>
+                        onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
+                        <a class="reschedule-button" href="<?php echo e(route('patient.reschedule-appointment', ['id' => $appointment->appointment_id])); ?>">Reschedule</a>
+
+                    <?php elseif($status === 'change requested'): ?>
+                        <a class="delete-button" href="<?php echo e(route('patient.delete-appointment', ['id' => $appointment->appointment_id])); ?>" 
+                        onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</a>
+                        <a class="reschedule-button" href="<?php echo e(route('patient.edit-appointment', ['id' => $appointment->appointment_id])); ?>">Edit</a>
+
                     <?php elseif($status === 'approved'): ?>
                         <a class="delete-button" href="<?php echo e(route('patient.cancel-appointment', ['id' => $appointment->appointment_id])); ?>" 
-                           onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel</a>
+                        onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel</a>
+                        <a class="reschedule-button" href="<?php echo e(route('patient.reschedule-appointment', ['id' => $appointment->appointment_id])); ?>">Reschedule</a>
                     <?php endif; ?>
                 </div>
             </div>

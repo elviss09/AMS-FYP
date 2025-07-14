@@ -4,71 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Appointment Calendar</title>
-
-    {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('css/request-appointment-calendar.css') }}">
+
+    <style>
+        .day-box.holiday {
+            color:rgb(255, 0, 25);
+            cursor: not-allowed;
+            opacity: 100%;
+        }
+
+        .day-box.holiday:hover {
+            background-color: #f8d7da;
+        }
+    </style>
 </head>
 <body>
 
-    @php
-        use Illuminate\Support\Facades\DB;
+@php
+    use Illuminate\Support\Facades\DB;
 
-        $patientId = session('patient_id');
+    $patientId = session('patient_id');
 
-        $appointmentDates = DB::table('appointments')
-            ->where('patient_id', $patientId)
-            ->pluck('appointment_date')
-            ->map(fn($date) => \Carbon\Carbon::parse($date)->format('Y-m-d'))
-            ->toArray();
-    @endphp
+    $appointmentDates = DB::table('appointments')
+        ->where('patient_id', $patientId)
+        ->pluck('appointment_date')
+        ->map(fn($date) => \Carbon\Carbon::parse($date)->format('Y-m-d'))
+        ->toArray();
 
-    <div class="calendar-container">
-        <div class="calendar-header">
-            <button type="button" class="today-btn hide">
-                <div class="date-today">
-                    <div class="top-section hide"></div>
-                    <div class="below-section hide"></div>
-                </div>
-                
-            </button>
-            <button id="prevMonth" type="button"><img src="{{ asset('img/arrow-icon.svg') }}" alt="prev"></button>
-            <h2 id="monthYear"></h2>
-            <button id="nextMonth" type="button"><img src="{{ asset('img/arrow-icon.svg') }}" alt="next"></button>
-            <button type="button" class="today-btn">
-                <div class="date-today">
-                    <div class="top-section"></div>
-                    <div class="below-section" id="goToday"></div>
-                </div>
-                
-            </button>
-        </div>
+    $publicHolidays = DB::table('public_holidays')
+        ->get()
+        ->mapWithKeys(fn($holiday) => [
+            \Carbon\Carbon::parse($holiday->holiday_date)->format('Y-m-d') => $holiday->description
+        ])
+        ->toArray();
+@endphp
 
-        <div class="calendar-days">
-            <div class="day">Sun</div>
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thu</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-        </div>
-
-        <div id="calendar"></div>
+<div class="calendar-container">
+    <div class="calendar-header">
+        <button type="button" class="today-btn hide">
+            <div class="date-today">
+                <div class="top-section hide"></div>
+                <div class="below-section hide"></div>
+            </div>
+        </button>
+        <button id="prevMonth" type="button"><img src="{{ asset('img/arrow-icon.svg') }}" alt="prev"></button>
+        <h2 id="monthYear"></h2>
+        <button id="nextMonth" type="button"><img src="{{ asset('img/arrow-icon.svg') }}" alt="next"></button>
+        <button type="button" class="today-btn">
+            <div class="date-today">
+                <div class="top-section"></div>
+                <div class="below-section" id="goToday"></div>
+            </div>
+        </button>
     </div>
 
-    <script>
-        const goTodayBtn = document.getElementById("goToday");
+    <div class="calendar-days">
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+    </div>
 
-        // Set today's date as button text
-        const today = new Date();
-        goTodayBtn.textContent = today.getDate();
+    <div id="calendar"></div>
+</div>
 
+<script>
+    const goTodayBtn = document.getElementById("goToday");
+    const today = new Date();
+    goTodayBtn.textContent = today.getDate();
 
-goTodayBtn.addEventListener("click", () => {
-    currentDate = new Date(); // Reset to today's date
-    renderCalendar();
-});
+    goTodayBtn.addEventListener("click", () => {
+        currentDate = new Date();
+        renderCalendar();
+    });
 
+    // const publicHolidays = @json($publicHolidays);
+    const publicHolidays = <?php echo json_encode($publicHolidays); ?>;
 
     const monthYear = document.getElementById("monthYear");
     const calendar = document.getElementById("calendar");
@@ -81,7 +95,7 @@ goTodayBtn.addEventListener("click", () => {
         const year = currentDate.getFullYear();
         const month = currentDate.getMonth();
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Normalize today's date for comparison
+        today.setHours(0, 0, 0, 0);
 
         monthYear.textContent = new Intl.DateTimeFormat("en-US", {
             month: "long",
@@ -106,19 +120,28 @@ goTodayBtn.addEventListener("click", () => {
 
             const dateToCheck = new Date(year, month, day);
             dateToCheck.setHours(0, 0, 0, 0);
+            const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-            // Disable today and past days
-            if (dateToCheck <= today) {
+            const isToday = dateToCheck.getTime() === today.getTime();
+            const isPast = dateToCheck < today;
+            // const isHoliday = publicHolidays.includes(formattedDate);
+            const isHoliday = publicHolidays.hasOwnProperty(formattedDate);
+
+
+            if (isPast || isToday || isHoliday) {
                 dayBox.classList.add("disabled");
-                if (dateToCheck.getTime() === today.getTime()) {
-                    dayBox.classList.add("today"); // Add highlight to today
+
+                if (isToday) dayBox.classList.add("today");
+                if (isHoliday) {
+                    dayBox.classList.add("holiday");
+                    dayBox.title = publicHolidays[formattedDate] || "Holiday";
                 }
             } else {
                 dayBox.addEventListener("click", () => {
                     document.querySelectorAll(".day-box").forEach(box => box.classList.remove("selected"));
                     dayBox.classList.add("selected");
 
-                    const selectedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const selectedDate = formattedDate;
 
                     const selectedDateElem = document.querySelector(".selected-date");
                     if (selectedDateElem) {
@@ -151,7 +174,5 @@ goTodayBtn.addEventListener("click", () => {
 
     renderCalendar();
 </script>
-    <!-- <script src="{{ asset('js/request-appointment-calendar.js') }}"></script> -->
-
 </body>
 </html>

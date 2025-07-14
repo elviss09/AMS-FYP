@@ -137,6 +137,22 @@ button {
     gap: 10px;
 }
 
+.time-slot.reschedule {
+    display: grid;
+    grid-template-areas:
+        "previous previous"
+        "selected selected"
+        "am pm";
+    grid-template-columns: 140px 140px;
+    grid-template-rows: 40px 20px;
+    gap: 10px;
+}
+
+.previous-date-time {
+    grid-area: previous;
+    font-size: 14px;
+}
+
 .selected-date {
     grid-area: selected;
 }

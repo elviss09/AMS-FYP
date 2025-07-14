@@ -149,33 +149,6 @@
     // Set max date for DOB (prevent selecting future date)
     document.getElementById('dob').max = new Date().toISOString().split('T')[0];
 
-    // MyKad Uniqueness Check
-    const mykadInput = document.querySelector('input[name="mykad"]');
-    mykadInput.addEventListener('input', function () {
-        const value = this.value.trim();
-
-        // Check if exactly 12 digits
-        const isNumeric = /^\d{12}$/.test(value);
-        if (!isNumeric) {
-            this.style.border = '1px solid red';
-            return;
-        }
-
-        // Laravel route for checking MyKad
-        fetch(`/check-mykad?mykad=${value}`)
-            .then(response => response.text())
-            .then(data => {
-                if (data === 'exists') {
-                    this.style.border = '1px solid red';
-                } else {
-                    this.style.border = '1px solid #16A34A';
-                }
-            })
-            .catch(() => {
-                this.style.border = '1px solid red';
-            });
-    });
-
     // Calculate Age based on DOB
     function calculateAge() {
         const dobInput = document.getElementById('dob').value;
@@ -253,19 +226,20 @@
 
         const fields = [
             ['Full Name', form.fname.value],
-            ['MyKad', form.mykad.value],
             ['Date of Birth', form.dob.value],
+            ['Age', form.age.value],
             ['Gender', gender],
-            ['Phone', form.phone_no.value],
+            ['Phone Number', form.phone_no.value],
             ['Email', form.email.value],
             ['Emergency Contact', form.emergency_contact.value],
-            ['Relationship', form.emergency_relationship.value],
-            ['Height', form.height.value + " m"],
-            ['Weight', form.weight.value + " kg"],
-            ['Blood Type', form.blood.value],
-            ['Penicillin Allergy', penicillin],
-            ['Reaction', reaction]
+            ['Emergency Relationship', form.emergency_relationship.value],
+            ['Role', form.role.value],
+            ['Position', form.position.value],
+            ['Section', form.section_id.options[form.section_id.selectedIndex].text],
+            ['Specialisation', form.specialisation.value],
+            ['Qualification', form.qualification.value]
         ];
+
 
         let html = '<ul>';
         fields.forEach(([label, value]) => {
