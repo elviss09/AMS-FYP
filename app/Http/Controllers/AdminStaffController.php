@@ -88,6 +88,7 @@ class AdminStaffController extends Controller
         $staff->emergency_relationship = $request->emergency_relationship;
         $staff->role = $request->role;
         $staff->position = $request->position;
+        $staff->working_section = $request->Division;
 
         if ($staff->save()) {
             // Check if doctor or nurse
